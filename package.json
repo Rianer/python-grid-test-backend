@@ -1,0 +1,29 @@
+{
+    "name": "python-grid-test-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node src/app.ts",
+        "dev": "nodemon --exec ts-node src/app.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Rianer/python-grid-test-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/Rianer/python-grid-test-backend/issues"
+    },
+    "homepage": "https://github.com/Rianer/python-grid-test-backend#readme",
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "express": "^5.2.1",
+        "nodemon": "^3.1.11",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.3"
+    }
+}

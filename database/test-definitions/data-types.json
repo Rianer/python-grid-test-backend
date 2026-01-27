@@ -1,0 +1,65 @@
+{
+    "id": "data-types",
+    "topic": "Data Types",
+    "description": "This test will focus on Python data types, their specifics and operations.",
+    "singleQuestions": [
+        {
+            "title": "What is the data type of *my_var*?\n`my_var = 1 == 2`",
+            "answerVariants": [
+                { "id": "a", "value": "int" },
+                { "id": "b", "value": "boolean" },
+                { "id": "c", "value": "str" },
+                { "id": "d", "value": "list" },
+                { "id": "e", "value": "double" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "The expression `1 == 2` is evaluated as being `False`, which is a *boolean* value."
+        }
+    ],
+    "questionGroups": [
+        {
+            "groupTitle": "For the following questions choose all the correct answers.",
+            "questions": [
+                {
+                    "title": "What data type can we use to store a sequence of numbers from 1 to 5 as distinct elements?",
+                    "answerVariants": [
+                        { "id": "a", "value": "int" },
+                        { "id": "b", "value": "tuple" },
+                        { "id": "c", "value": "str" },
+                        { "id": "d", "value": "list" },
+                        { "id": "e", "value": "set" },
+                        { "id": "f", "value": "double" }
+                    ],
+                    "correctAnswerIds": ["b", "d", "e"],
+                    "explanation": "In python we use tuples, lists and sets to store sequences of elements. Even though we could put all the numbers in a string, they would not be distinct elements"
+                },
+                {
+                    "title": "Of which data type can the variable *my_var* be, in order for this expression to execute properly?\n`limit = len(my_var)`",
+                    "answerVariants": [
+                        { "id": "a", "value": "int" },
+                        { "id": "b", "value": "boolean" },
+                        { "id": "c", "value": "dictionary" },
+                        { "id": "d", "value": "list" },
+                        { "id": "e", "value": "set" },
+                        { "id": "f", "value": "double" },
+                        { "id": "g", "value": "str" },
+                        { "id": "h", "value": "tuple" }
+                    ],
+                    "correctAnswerIds": ["c", "d", "e", "g", "h"],
+                    "explanation": "The len() method can be applied only for sequence data types and dictionaries."
+                },
+                {
+                    "title": "What will be the output of the following Python code snippet?\n```a = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[1, 2, 3]" },
+                        { "id": "b", "value": "[1, 2, 3, 4]" },
+                        { "id": "c", "value": "[4, 1, 2, 3]" },
+                        { "id": "d", "value": "Error: List is not defined" }
+                    ],
+                    "correctAnswerIds": ["c", "d", "e", "g", "h"],
+                    "explanation": "In Python, variable `b` is assigned to the same list object as `a`. Therefore, when you modify `b` by appending 4, it also modifies the original list referenced by `a`. Hence, when you print `a`, it reflects the change made to `b`."
+                }
+            ]
+        }
+    ]
+}
