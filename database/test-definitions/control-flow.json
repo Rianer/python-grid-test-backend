@@ -1,0 +1,248 @@
+{
+    "id": "control-flow",
+    "topic": "Control Flow in Python",
+    "description": "This quiz covers the essentials of decision making and repetition in Python: if/elif/else statements, comparison and logical operators, while and for loops, break/continue/pass, and the range() function. Ideal for beginners and early intermediates.",
+    "singleQuestions": [
+        {
+            "title": "What is printed by this code?\n```python\nx = 10\nif x > 15:\n    print(\"big\")\nelif x > 5:\n    print(\"medium\")\nelse:\n    print(\"small\")\n```",
+            "answerVariants": [
+                { "id": "a", "value": "big" },
+                { "id": "b", "value": "medium" },
+                { "id": "c", "value": "small" },
+                { "id": "d", "value": "nothing" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "10 > 15 is false → check next condition → 10 > 5 is true → prints **medium**."
+        },
+        {
+            "title": "Which condition is **True**?",
+            "answerVariants": [
+                { "id": "a", "value": "5 < 3 < 7" },
+                { "id": "b", "value": "10 == 10.0 and '10' == 10" },
+                { "id": "c", "value": "not False or False" },
+                { "id": "d", "value": "bool(0) and True" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "not False → True → True or anything → **True**.  \nOthers are False."
+        },
+        {
+            "title": "What does this loop print?\n```python\nfor i in range(4):\n    print(i, end=' ')\n```",
+            "answerVariants": [
+                { "id": "a", "value": "0 1 2 3" },
+                { "id": "b", "value": "1 2 3 4" },
+                { "id": "c", "value": "0 1 2 3 4" },
+                { "id": "d", "value": "4 3 2 1 0" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`range(4)` generates 0, 1, 2, 3 (start=0, stop=4, step=1 → excludes 4)."
+        },
+        {
+            "title": "How many times does \"hi\" get printed?\n```python\ni = 0\nwhile i < 5:\n    print(\"hi\")\n    i += 2\n```",
+            "answerVariants": [
+                { "id": "a", "value": "2" },
+                { "id": "b", "value": "3" },
+                { "id": "c", "value": "5" },
+                { "id": "d", "value": "infinite" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "i = 0, 2, 4 → three iterations (0<5, 2<5, 4<5 → next would be 6≥5)."
+        },
+        {
+            "title": "What is printed?\n```python\nfor x in range(6):\n    if x == 3:\n        continue\n    print(x, end='')\n```",
+            "answerVariants": [
+                { "id": "a", "value": "012345" },
+                { "id": "b", "value": "01245" },
+                { "id": "c", "value": "0123" },
+                { "id": "d", "value": "345" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`continue` skips the rest of the loop body when x==3 → 3 is not printed."
+        },
+        {
+            "title": "Which statement is syntactically correct but does nothing?",
+            "answerVariants": [
+                { "id": "a", "value": "`break`" },
+                { "id": "b", "value": "`continue`" },
+                { "id": "c", "value": "`pass`" },
+                { "id": "d", "value": "`exit()`" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "`pass` is a no-operation statement — legal anywhere a statement is required."
+        },
+        {
+            "title": "What is the last value printed?\n```python\nfor i in range(10, 3, -2):\n    print(i)\n```",
+            "answerVariants": [
+                { "id": "a", "value": "4" },
+                { "id": "b", "value": "3" },
+                { "id": "c", "value": "5" },
+                { "id": "d", "value": "10" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "range(10, 3, -2) → 10, 8, 6, 4 (stops before reaching 3)."
+        },
+        {
+            "title": "Which expression is equivalent to `not (a and b)`?",
+            "answerVariants": [
+                { "id": "a", "value": "`not a and not b`" },
+                { "id": "b", "value": "`not a or not b`" },
+                { "id": "c", "value": "`a or b`" },
+                { "id": "d", "value": "`not a and b`" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "De Morgan's law: `not (A and B)` ⇔ `not A or not B`."
+        },
+        {
+            "title": "What happens in this code?\n```python\nn = 4\nwhile n > 0:\n    n -= 1\n    if n == 2:\n        break\n    print(n)\n```",
+            "answerVariants": [
+                { "id": "a", "value": "prints 3 2 1 0" },
+                { "id": "b", "value": "prints 3" },
+                { "id": "c", "value": "prints 3 1 0" },
+                { "id": "d", "value": "infinite loop" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "When n becomes 2, `break` exits the loop immediately — only 3 was printed before that."
+        },
+        {
+            "title": "Which range produces exactly [5, 8, 11, 14]?",
+            "answerVariants": [
+                { "id": "a", "value": "`range(5, 15, 3)`" },
+                { "id": "b", "value": "`range(5, 14, 3)`" },
+                { "id": "c", "value": "`range(5, 16, 3)`" },
+                { "id": "d", "value": "`range(5, 15)`" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "5, 5+3=8, 8+3=11, 11+3=14, 14+3=17 (≥15 → stop)."
+        },
+        {
+            "title": "What is the value of `x` after this block?\n```python\nx = 7\nif x > 0:\n    x = 10\nelif x > 5:\n    x = 20\n```",
+            "answerVariants": [
+                { "id": "a", "value": "10" },
+                { "id": "b", "value": "20" },
+                { "id": "c", "value": "7" },
+                { "id": "d", "value": "undefined" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "First condition `x > 0` is true → `elif` is skipped."
+        },
+        {
+            "title": "Which loop never executes its body?\n```python\n# Option A\nfor _ in range(0):\n    print(1)\n\n# Option B\ni = 5\nwhile i < 5:\n    print(2)\n\n# Option C\nfor i in []:\n    print(3)\n```",
+            "answerVariants": [
+                { "id": "a", "value": "Only A" },
+                { "id": "b", "value": "Only B" },
+                { "id": "c", "value": "A, B and C" },
+                { "id": "d", "value": "None of them" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "range(0) → empty, while 5<5 → false, empty list → empty iterable. All three never run."
+        }
+    ],
+    "questionGroups": [
+        {
+            "groupTitle": "Predict what gets printed (or if it loops forever)",
+            "questions": [
+                {
+                    "title": "```python\nfor i in range(1, 7, 2):\n    print(i, end=' ')\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "1 3 5" },
+                        { "id": "b", "value": "1 2 3 4 5 6" },
+                        { "id": "c", "value": "1 3 5 7" },
+                        { "id": "d", "value": "2 4 6" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Start 1, step 2, stop before 7 → 1, 3, 5."
+                },
+                {
+                    "title": "```python\nx = 3\nwhile x:\n    print(x, end='')\n    x -= 1\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "321" },
+                        { "id": "b", "value": "3210" },
+                        { "id": "c", "value": "infinite loop" },
+                        { "id": "d", "value": "nothing" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "While x is truthy (non-zero). When x becomes 0 → falsy → loop stops. Prints 3,2,1."
+                },
+                {
+                    "title": "```python\nfor i in range(5):\n    if i == 2:\n        continue\n    if i == 4:\n        break\n    print(i, end=' ')\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "0 1 3" },
+                        { "id": "b", "value": "0 1 3 4" },
+                        { "id": "c", "value": "0 1 2 3" },
+                        { "id": "d", "value": "0 1 3 " }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Skips 2 (continue), breaks at 4 before printing it → prints 0 1 3."
+                },
+                {
+                    "title": "```python\nn = 0\nwhile True:\n    n += 1\n    if n % 3 == 0:\n        continue\n    if n > 7:\n        break\n    print(n, end=' ')\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "1 2 4 5 7" },
+                        { "id": "b", "value": "1 2 3 4 5 6 7" },
+                        { "id": "c", "value": "1 2 4 5 6 7" },
+                        { "id": "d", "value": "infinite" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Skips multiples of 3, breaks after n>7 check (before printing 8) → 1 2 4 5 7."
+                }
+            ]
+        },
+        {
+            "groupTitle": "Choose the correct outcome / best description",
+            "questions": [
+                {
+                    "title": "What is the most Pythonic way to loop over numbers 0 to 9?",
+                    "answerVariants": [
+                        { "id": "a", "value": "`for i in range(10):`" },
+                        {
+                            "id": "b",
+                            "value": "`i = 0\nwhile i < 10:\n    i += 1`"
+                        },
+                        { "id": "c", "value": "`for i in range(1, 11):`" },
+                        {
+                            "id": "d",
+                            "value": "`for i in [0,1,2,3,4,5,6,7,8,9]:`"
+                        }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`range(10)` is clean, memory-efficient and idiomatic for this purpose."
+                },
+                {
+                    "title": "`if x:` is usually the same as:",
+                    "answerVariants": [
+                        {
+                            "id": "a",
+                            "value": "`if x != 0 and x is not None and x != '' and x != False:`"
+                        },
+                        { "id": "b", "value": "`if x == True:`" },
+                        { "id": "c", "value": "`if bool(x) is True:`" },
+                        { "id": "d", "value": "`if x > 0:`" }
+                    ],
+                    "correctAnswerIds": ["c"],
+                    "explanation": "`if x:` implicitly calls `bool(x)`. Most accurate match is option c."
+                },
+                {
+                    "title": "Which construct lets you skip the rest of the current iteration and move to the next one?",
+                    "answerVariants": [
+                        { "id": "a", "value": "`break`" },
+                        { "id": "b", "value": "`continue`" },
+                        { "id": "c", "value": "`pass`" },
+                        { "id": "d", "value": "`return`" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "`continue` jumps immediately to the next iteration."
+                },
+                {
+                    "title": "What does `range(5, 0, -1)` generate?",
+                    "answerVariants": [
+                        { "id": "a", "value": "5, 4, 3, 2, 1" },
+                        { "id": "b", "value": "5, 4, 3, 2, 1, 0" },
+                        { "id": "c", "value": "5, 4, 3, 2" },
+                        { "id": "d", "value": "nothing (empty)" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Starts at 5, decreases by 1 each time, stops **before** 0 → 5 4 3 2 1."
+                }
+            ]
+        }
+    ]
+}

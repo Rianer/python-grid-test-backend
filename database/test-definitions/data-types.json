@@ -14,6 +14,222 @@
             ],
             "correctAnswerIds": ["b"],
             "explanation": "The expression `1 == 2` is evaluated as being `False`, which is a *boolean* value."
+        },
+        {
+            "title": "What is the result of `type(3.14)` in Python?",
+            "answerVariants": [
+                { "id": "a", "value": "<class 'int'>" },
+                { "id": "b", "value": "<class 'float'>" },
+                { "id": "c", "value": "<class 'decimal'>" },
+                { "id": "d", "value": "<class 'double'>" },
+                { "id": "e", "value": "<class 'complex'>" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Numbers with a decimal point are stored as `float` in Python. `double` is not a built-in type name."
+        },
+        {
+            "title": "Which of these is **not** a valid Python boolean value?",
+            "answerVariants": [
+                { "id": "a", "value": "True" },
+                { "id": "b", "value": "False" },
+                { "id": "c", "value": "true" },
+                { "id": "d", "value": "FALSE" },
+                { "id": "e", "value": "None" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "Python uses `True` and `False` (capitalized). `true`/`false` (lowercase) are not recognized as booleans."
+        },
+        {
+            "title": "What Python type does the literal `()` represent?",
+            "answerVariants": [
+                { "id": "a", "value": "list" },
+                { "id": "b", "value": "tuple" },
+                { "id": "c", "value": "set" },
+                { "id": "d", "value": "dict" },
+                { "id": "e", "value": "empty" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`()` is an empty tuple. Empty list = `[]`, empty set = `set()`, empty dict = `{}`."
+        },
+        {
+            "title": "What is printed by this code?\n```x = {1, 2, 2, 3}\nprint(len(x))```",
+            "answerVariants": [
+                { "id": "a", "value": "4" },
+                { "id": "b", "value": "3" },
+                { "id": "c", "value": "2" },
+                { "id": "d", "value": "Error" },
+                { "id": "e", "value": "undefined" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "A `set` automatically removes duplicates, so `{1, 2, 2, 3}` becomes `{1, 2, 3}` → length 3."
+        },
+        {
+            "title": "Which data type is **immutable** in Python?",
+            "answerVariants": [
+                { "id": "a", "value": "list" },
+                { "id": "b", "value": "dictionary" },
+                { "id": "c", "value": "set" },
+                { "id": "d", "value": "tuple" },
+                { "id": "e", "value": "bytearray" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Tuples are immutable. Lists, dictionaries, sets and bytearrays are mutable."
+        },
+        {
+            "title": "What is the type of the variable after this line?\n`val = {\"name\": \"Ana\", 42: True}`",
+            "answerVariants": [
+                { "id": "a", "value": "tuple" },
+                { "id": "b", "value": "set" },
+                { "id": "c", "value": "list" },
+                { "id": "d", "value": "dict" },
+                { "id": "e", "value": "frozenset" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Curly braces with `key: value` pairs create a dictionary (`dict`). Keys can be different types (here int and str)."
+        },
+        {
+            "title": "Which expression creates an **empty set**?",
+            "answerVariants": [
+                { "id": "a", "value": "{}" },
+                { "id": "b", "value": "set()" },
+                { "id": "c", "value": "[]" },
+                { "id": "d", "value": "()" },
+                { "id": "e", "value": "dict()" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`{}` creates an empty dictionary, not a set. The correct way to create an empty set is `set()`."
+        },
+        {
+            "title": "What will be the type of `result`?\n```a = [10]\nresult = a * 3```",
+            "answerVariants": [
+                { "id": "a", "value": "int" },
+                { "id": "b", "value": "list" },
+                { "id": "c", "value": "tuple" },
+                { "id": "d", "value": "str" },
+                { "id": "e", "value": "set" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Multiplying a list by an integer repeats the list → `[10] * 3` becomes `[10, 10, 10]` (still a list)."
+        },
+        {
+            "title": "Which of these values is **falsy** in a boolean context?",
+            "answerVariants": [
+                { "id": "a", "value": "0.0" },
+                { "id": "b", "value": "\"False\"" },
+                { "id": "c", "value": "[]" },
+                { "id": "d", "value": "range(0)" },
+                { "id": "e", "value": "All of the above" }
+            ],
+            "correctAnswerIds": ["e"],
+            "explanation": "All listed values are falsy: empty sequence/container, zero (int/float), and empty range."
+        },
+        {
+            "title": "What does `type(None)` return?",
+            "answerVariants": [
+                { "id": "a", "value": "<class 'null'>" },
+                { "id": "b", "value": "<class 'NoneType'>" },
+                { "id": "c", "value": "<class 'void'>" },
+                { "id": "d", "value": "<class 'undefined'>" },
+                { "id": "e", "value": "None" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`None` is a singleton object whose type is `NoneType`. It is **not** the string 'None'."
+        },
+        {
+            "title": "What is the data type of the value stored in `var`?\n```python\nvar = 42.0\n```",
+            "answerVariants": [
+                { "id": "a", "value": "int" },
+                { "id": "b", "value": "float" },
+                { "id": "c", "value": "complex" },
+                { "id": "d", "value": "decimal" },
+                { "id": "e", "value": "str" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Any number written with a decimal point (even if it's .0) is treated as a `float` in Python."
+        },
+        {
+            "title": "Which of these is the correct way to create a string in Python?",
+            "answerVariants": [
+                { "id": "a", "value": "string = 'Hello'" },
+                { "id": "b", "value": "string = \"Hello\"" },
+                { "id": "c", "value": "string = '''Hello'''" },
+                { "id": "d", "value": "All of the above" },
+                { "id": "e", "value": "Only a and b" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Python allows single quotes `'`, double quotes `\"`, and triple quotes `'''` or `\"\"\"` for strings (triple quotes are especially useful for multi-line strings)."
+        },
+        {
+            "title": "What will `type(())` return?",
+            "answerVariants": [
+                { "id": "a", "value": "<class 'list'>" },
+                { "id": "b", "value": "<class 'tuple'>" },
+                { "id": "c", "value": "<class 'set'>" },
+                { "id": "d", "value": "<class 'dict'>" },
+                { "id": "e", "value": "<class 'tuple'>" }
+            ],
+            "correctAnswerIds": ["b", "e"],
+            "explanation": "`()` creates an **empty tuple**. Note: both answer b and e are the same correct value in this case — but normally we write it as `<class 'tuple'>`."
+        },
+        {
+            "title": "What is printed by this code?\n```python\ncolors = ['red', 'green', 'blue']\nprint(colors[1])\n```",
+            "answerVariants": [
+                { "id": "a", "value": "red" },
+                { "id": "b", "value": "green" },
+                { "id": "c", "value": "blue" },
+                { "id": "d", "value": "1" },
+                { "id": "e", "value": "IndexError" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "List indices start at **0**, so `colors[0]` is 'red' and `colors[1]` is 'green'."
+        },
+        {
+            "title": "Which data type does **not** allow duplicate values by default?",
+            "answerVariants": [
+                { "id": "a", "value": "list" },
+                { "id": "b", "value": "tuple" },
+                { "id": "c", "value": "set" },
+                { "id": "d", "value": "str" },
+                { "id": "e", "value": "Both c and d" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "Sets automatically remove duplicates — `{1, 2, 2, 3}` becomes `{1, 2, 3}`. Lists, tuples and strings allow duplicates."
+        },
+        {
+            "title": "What is the type of `my_var` after this line?\n```python\nmy_var = { 'a': 1, 'b': 2 }\n```",
+            "answerVariants": [
+                { "id": "a", "value": "set" },
+                { "id": "b", "value": "tuple" },
+                { "id": "c", "value": "list" },
+                { "id": "d", "value": "dict" },
+                { "id": "e", "value": "frozenset" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Curly braces with `key: value` pairs create a **dictionary** (`dict`). Sets use curly braces without colons."
+        },
+        {
+            "title": "Which of these values is **truthy** in a boolean context?",
+            "answerVariants": [
+                { "id": "a", "value": "0" },
+                { "id": "b", "value": "''" },
+                { "id": "c", "value": "'False'" },
+                { "id": "d", "value": "[]" },
+                { "id": "e", "value": "None" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "Non-empty strings are truthy — even `'False'` is considered `True` in a boolean context. Empty strings, 0, empty containers, and `None` are falsy."
+        },
+        {
+            "title": "What does this expression return?\n```python\ntype([1, 2, 3] == (1, 2, 3))\n```",
+            "answerVariants": [
+                { "id": "a", "value": "<class 'int'>" },
+                { "id": "b", "value": "<class 'bool'>" },
+                { "id": "c", "value": "<class 'list'>" },
+                { "id": "d", "value": "<class 'tuple'>" },
+                { "id": "e", "value": "SyntaxError" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "The comparison `[1, 2, 3] == (1, 2, 3)` returns a boolean value (`False` in this case), and `type()` of a boolean is `<class 'bool'>`."
         }
     ],
     "questionGroups": [
@@ -58,6 +274,180 @@
                     ],
                     "correctAnswerIds": ["c", "d", "e", "g", "h"],
                     "explanation": "In Python, variable `b` is assigned to the same list object as `a`. Therefore, when you modify `b` by appending 4, it also modifies the original list referenced by `a`. Hence, when you print `a`, it reflects the change made to `b`."
+                }
+            ]
+        },
+        {
+            "groupTitle": "For the following questions choose the correct value of `x` after each code snippet runs. Each question has exactly one correct answer.",
+            "questions": [
+                {
+                    "title": "What is the value of `x` after this code?\n```python\nx = 5\nx = x > 3\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "5" },
+                        { "id": "b", "value": "True" },
+                        { "id": "c", "value": "False" },
+                        { "id": "d", "value": "2" },
+                        { "id": "e", "value": "Error" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "`x > 3` evaluates to `True` (since 5 > 3), and that boolean value is assigned to `x`."
+                },
+                {
+                    "title": "What is the value of `x` after this code?\n```python\nx = [1, 2, 3]\nx += [4]\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[1, 2, 3, 4]" },
+                        { "id": "b", "value": "[1, 2, 3] [4]" },
+                        { "id": "c", "value": "Error" },
+                        { "id": "d", "value": "[5]" },
+                        { "id": "e", "value": "7" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`+=` on a list performs an in-place extend (like `.extend([4])`), so `x` becomes `[1, 2, 3, 4]`."
+                },
+                {
+                    "title": "What is the value of `x` after this code?\n```python\nx = 'hello'\nx = x * 2\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "hellohello" },
+                        { "id": "b", "value": "['hello', 'hello']" },
+                        { "id": "c", "value": "Error" },
+                        { "id": "d", "value": "10" },
+                        { "id": "e", "value": "'hello' * 2" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Multiplying a string by an integer repeats the string → `'hello' * 2` results in `'hellohello'`."
+                },
+                {
+                    "title": "What is the value of `x` after this code?\n```python\nx = {1, 2, 3}\nx = x | {3, 4}\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "{1, 2, 3, 4}" },
+                        { "id": "b", "value": "{1, 2, 3}" },
+                        { "id": "c", "value": "{3, 4}" },
+                        { "id": "d", "value": "Error" },
+                        { "id": "e", "value": "[1, 2, 3, 4]" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "The `|` operator on sets performs union. `{1,2,3} | {3,4}` = `{1,2,3,4}` (duplicates removed)."
+                },
+                {
+                    "title": "What is the value of `x` after this code?\n```python\na = [10, 20]\nx = a\nx.append(30)\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[10, 20]" },
+                        { "id": "b", "value": "[10, 20, 30]" },
+                        { "id": "c", "value": "[30, 10, 20]" },
+                        { "id": "d", "value": "Error" },
+                        { "id": "e", "value": "None" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "`x = a` makes both variables refer to the **same list object**. Modifying `x` with `.append()` also changes the list that `a` points to, so `x` (and `a`) becomes `[10, 20, 30]`."
+                }
+            ]
+        },
+        {
+            "groupTitle": "For the following questions choose ALL correct answers. Multiple options may be correct for each question about lists, tuples and sets.",
+            "questions": [
+                {
+                    "title": "Which of these Python data types are **mutable** (can be changed after creation)?",
+                    "answerVariants": [
+                        { "id": "a", "value": "list" },
+                        { "id": "b", "value": "tuple" },
+                        { "id": "c", "value": "set" },
+                        { "id": "d", "value": "frozenset" },
+                        { "id": "e", "value": "str" }
+                    ],
+                    "correctAnswerIds": ["a", "c"],
+                    "explanation": "Lists and sets are mutable — you can add, remove or change elements. Tuples, frozensets and strings are immutable."
+                },
+                {
+                    "title": "Which of these operations are valid on a **set**?",
+                    "answerVariants": [
+                        { "id": "a", "value": "s.add(42)" },
+                        { "id": "b", "value": "s[0]" },
+                        { "id": "c", "value": "s.remove(7)" },
+                        { "id": "d", "value": "s + {8, 9}" },
+                        { "id": "e", "value": "42 in s" },
+                        { "id": "f", "value": "s.append(10)" }
+                    ],
+                    "correctAnswerIds": ["a", "c", "e"],
+                    "explanation": "Sets support .add(), .remove(), membership test (in), union (&, |), etc. They do **not** support indexing (s[0]), concatenation (+) or .append() — those are for lists."
+                },
+                {
+                    "title": "Which of these statements about **tuples** are true?",
+                    "answerVariants": [
+                        {
+                            "id": "a",
+                            "value": "Tuples can contain mutable objects (like lists)"
+                        },
+                        {
+                            "id": "b",
+                            "value": "Tuples are ordered and allow duplicates"
+                        },
+                        {
+                            "id": "c",
+                            "value": "Tuples are faster than lists for iteration"
+                        },
+                        {
+                            "id": "d",
+                            "value": "You can change a tuple element with tuple[0] = 99"
+                        },
+                        {
+                            "id": "e",
+                            "value": "A single-element tuple must be written as (x,)"
+                        }
+                    ],
+                    "correctAnswerIds": ["a", "b", "c", "e"],
+                    "explanation": "Tuples are immutable, but can contain mutable objects. They preserve order & duplicates. They are slightly faster/lighter than lists. Single-element tuples require a trailing comma. You **cannot** reassign elements."
+                },
+                {
+                    "title": "Which data structures **automatically remove duplicates** when you create them from a collection with repeated values?",
+                    "answerVariants": [
+                        { "id": "a", "value": "list" },
+                        { "id": "b", "value": "tuple" },
+                        { "id": "c", "value": "set" },
+                        { "id": "d", "value": "dict (when using values only)" },
+                        { "id": "e", "value": "frozenset" }
+                    ],
+                    "correctAnswerIds": ["c", "e"],
+                    "explanation": "Both `set()` and `frozenset()` automatically eliminate duplicates. Lists, tuples and regular dicts (when created from pairs) preserve duplicates."
+                },
+                {
+                    "title": "Which of these expressions can be used to create an **empty** collection of the specified type?",
+                    "answerVariants": [
+                        { "id": "a", "value": "[]" },
+                        { "id": "b", "value": "()" },
+                        { "id": "c", "value": "set()" },
+                        { "id": "d", "value": "{}" },
+                        { "id": "e", "value": "tuple()" },
+                        { "id": "f", "value": "frozenset()" }
+                    ],
+                    "correctAnswerIds": ["a", "b", "c", "e", "f"],
+                    "explanation": "`[]` → empty list, `()` → empty tuple, `set()` → empty set, `tuple()` → empty tuple, `frozenset()` → empty frozenset. `{}` creates an **empty dictionary**, not a set."
+                },
+                {
+                    "title": "Which of these are true differences between **lists** and **sets**?",
+                    "answerVariants": [
+                        {
+                            "id": "a",
+                            "value": "Lists are ordered, sets are unordered"
+                        },
+                        {
+                            "id": "b",
+                            "value": "Lists allow duplicate elements, sets do not"
+                        },
+                        {
+                            "id": "c",
+                            "value": "Sets support membership testing much faster (O(1))"
+                        },
+                        {
+                            "id": "d",
+                            "value": "Lists support negative indexing (lst[-1])"
+                        },
+                        {
+                            "id": "e",
+                            "value": "Both support the + operator for concatenation"
+                        }
+                    ],
+                    "correctAnswerIds": ["a", "b", "c", "d"],
+                    "explanation": "Lists maintain order & duplicates; sets do not. Sets offer fast membership checks. Lists support indexing/slicing including negative indices. Sets do **not** support + (use | for union instead)."
                 }
             ]
         }

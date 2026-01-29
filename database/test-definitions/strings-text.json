@@ -1,0 +1,336 @@
+{
+    "id": "strings-text",
+    "topic": "Strings & Text Manipulation",
+    "description": "This quiz covers essential string operations in Python: common string methods (.upper, .lower, .strip, .split, .join, .replace, .find, etc.), f-strings, old-style formatting, escape sequences, multi-line strings, and basic text processing patterns. Ideal for beginners to intermediate learners.",
+    "singleQuestions": [
+        {
+            "title": "What is the result of `'Hello World'.upper()`?",
+            "answerVariants": [
+                { "id": "a", "value": "'HELLO WORLD'" },
+                { "id": "b", "value": "'hello world'" },
+                { "id": "c", "value": "'Hello World'" },
+                { "id": "d", "value": "TypeError" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.upper()` converts all cased characters to uppercase. Non-letter characters remain unchanged."
+        },
+        {
+            "title": "What does `'  python  \\n'.strip()` return?",
+            "answerVariants": [
+                { "id": "a", "value": "'python'" },
+                { "id": "b", "value": "'python \\n'" },
+                { "id": "c", "value": "'  python  '" },
+                { "id": "d", "value": "'' (empty string)" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.strip()` removes leading and trailing whitespace characters (spaces, tabs, newlines)."
+        },
+        {
+            "title": "Which f-string correctly formats the variable `name = 'Alice'` and `age = 28`?",
+            "answerVariants": [
+                { "id": "a", "value": "f'{name} is {age} years old.'" },
+                {
+                    "id": "b",
+                    "value": "'{} is {} years old.'.format(name, age)"
+                },
+                { "id": "c", "value": "f'{name} is {age} years old'" },
+                { "id": "d", "value": "Both a and c are correct" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "f-strings use curly braces directly. Option c is also valid (though missing a dot — but in practice both styles appear). The most modern and clean is f-string with dot optional in simple cases."
+        },
+        {
+            "title": "What is printed by `print('Line1\\nLine2')`?",
+            "answerVariants": [
+                { "id": "a", "value": "Line1\\nLine2" },
+                { "id": "b", "value": "Line1\nLine2 (on two lines)" },
+                { "id": "c", "value": "Line1Line2" },
+                { "id": "d", "value": "SyntaxError" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`\\n` is the escape sequence for newline → prints on two separate lines."
+        },
+        {
+            "title": "What does `'banana'.replace('a', 'X', 2)` return?",
+            "answerVariants": [
+                { "id": "a", "value": "'bXnXnX'" },
+                { "id": "b", "value": "'bXnana'" },
+                { "id": "c", "value": "'banXnX'" },
+                { "id": "d", "value": "'XXXXXXX'" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`.replace(old, new, count)` replaces only the first `count` occurrences → first two 'a' → 'bXnana'."
+        },
+        {
+            "title": "What is the result of `'python'.find('th')`?",
+            "answerVariants": [
+                { "id": "a", "value": "2" },
+                { "id": "b", "value": "-1" },
+                { "id": "c", "value": "3" },
+                { "id": "d", "value": "ValueError" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.find()` returns the lowest index where substring is found (0-based), or -1 if not found. 'th' starts at index 2."
+        },
+        {
+            "title": "Which creates a multi-line string?",
+            "answerVariants": [
+                { "id": "a", "value": "'''Line one\nLine two'''" },
+                { "id": "b", "value": "\"\"\"Line one\nLine two\"\"\"" },
+                { "id": "c", "value": "'Line one\\nLine two'" },
+                { "id": "d", "value": "All of the above" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Triple quotes (''' or \"\"\") support multi-line content. Single/double quotes with \\n also work but are less readable."
+        },
+        {
+            "title": "What does `'-'.join(['a', 'b', 'c'])` produce?",
+            "answerVariants": [
+                { "id": "a", "value": "'a-b-c'" },
+                { "id": "b", "value": "'abc'" },
+                { "id": "c", "value": "['a','-','b','-','c']" },
+                { "id": "d", "value": "TypeError" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.join(iterable)` concatenates strings with the separator between elements."
+        },
+        {
+            "title": "What is `' hello world '.lstrip()`?",
+            "answerVariants": [
+                { "id": "a", "value": "'hello world '" },
+                { "id": "b", "value": "' hello world'" },
+                { "id": "c", "value": "'hello world'" },
+                { "id": "d", "value": "'hello world '.lstrip() is invalid" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.lstrip()` removes only leading whitespace."
+        },
+        {
+            "title": "Which is **not** a valid way to include a double quote inside a string?",
+            "answerVariants": [
+                { "id": "a", "value": "\"He said \\\"hello\\\"\"" },
+                { "id": "b", "value": "'He said \"hello\"'" },
+                { "id": "c", "value": "f'He said \"hello\"'" },
+                { "id": "d", "value": "\"He said \"hello\"\"" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Option d has mismatched quotes → SyntaxError. Others correctly escape or use different quote types."
+        }
+    ],
+    "questionGroups": [
+        {
+            "groupTitle": "What is the final result of each string expression?",
+            "questions": [
+                {
+                    "title": "```python\ns = '  Python 3.12  \\t\\n'\nprint(repr(s.strip()))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'Python 3.12'" },
+                        { "id": "b", "value": "'Python 3.12  '" },
+                        { "id": "c", "value": "'  Python 3.12'" },
+                        { "id": "d", "value": "'Python 3.12 \\t\\n'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.strip()` removes all leading/trailing whitespace (spaces, tabs, newlines)."
+                },
+                {
+                    "title": "```python\ntext = 'apple,banana,cherry'\nprint(text.split(',')[1])\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'banana'" },
+                        { "id": "b", "value": "'apple'" },
+                        { "id": "c", "value": "'cherry'" },
+                        { "id": "d", "value": "','" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.split(',')` → `['apple', 'banana', 'cherry']` → index 1 = 'banana'."
+                },
+                {
+                    "title": "```python\nprint('mississippi'.count('s'))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "4" },
+                        { "id": "b", "value": "3" },
+                        { "id": "c", "value": "2" },
+                        { "id": "d", "value": "1" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.count(sub)` returns number of non-overlapping occurrences → s appears 4 times."
+                },
+                {
+                    "title": "```python\nmsg = 'Error: {}'\nprint(msg.format('404'))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'Error: 404'" },
+                        { "id": "b", "value": "'Error: {}'" },
+                        { "id": "c", "value": "KeyError" },
+                        { "id": "d", "value": "TypeError" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.format()` replaces `{}` placeholders in order."
+                }
+            ]
+        },
+        {
+            "groupTitle": "Choose the correct output or behavior",
+            "questions": [
+                {
+                    "title": "What does `'Python'.center(10, '*')` return?",
+                    "answerVariants": [
+                        { "id": "a", "value": "'**Python**'" },
+                        { "id": "b", "value": "'*Python**'" },
+                        { "id": "c", "value": "'Python****'" },
+                        { "id": "d", "value": "'  Python  '" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.center(width, fillchar)` centers the string and pads with fillchar to reach width."
+                },
+                {
+                    "title": "Result of `'hello world'.title()`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "'Hello World'" },
+                        { "id": "b", "value": "'HELLO WORLD'" },
+                        { "id": "c", "value": "'hello world'" },
+                        { "id": "d", "value": "'Hello world'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.title()` capitalizes first letter of each word."
+                },
+                {
+                    "title": "What is `'abc'.isalpha()`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "True" },
+                        { "id": "b", "value": "False" },
+                        { "id": "c", "value": "None" },
+                        { "id": "d", "value": "TypeError" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "All characters are alphabetic → True. (Would be False if space, digit, etc.)"
+                },
+                {
+                    "title": "Which is **False**?",
+                    "answerVariants": [
+                        { "id": "a", "value": "'123'.isdigit()" },
+                        { "id": "b", "value": "'12.5'.isnumeric()" },
+                        { "id": "c", "value": "'python3'.isalnum()" },
+                        { "id": "d", "value": "'   '.isspace()" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "`.isnumeric()` / `.isdigit()` return False for decimal point. Others are True."
+                }
+            ]
+        },
+        {
+            "groupTitle": "Predict the output of these snippets",
+            "questions": [
+                {
+                    "title": "```python\nparts = 'one two three'.split()\nprint('-'.join(parts))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'one-two-three'" },
+                        { "id": "b", "value": "'one two three'" },
+                        { "id": "c", "value": "'onetwothree'" },
+                        {
+                            "id": "d",
+                            "value": "['one', '-', 'two', '-', 'three']"
+                        }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.split()` (no arg) splits on whitespace → join with '-'."
+                },
+                {
+                    "title": "```python\ns = 'mississippi'\nprint(s.replace('i', 'X', 2))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'mXssXssippi'" },
+                        { "id": "b", "value": "'mXssissiXXi'" },
+                        { "id": "c", "value": "'mXssissippi'" },
+                        { "id": "d", "value": "'missXssippi'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Replaces first two 'i' → mXssXssippi"
+                },
+                {
+                    "title": "```python\nname = 'Bob'\nage = 30\nprint(f'{name.upper()} is {age + 5} next year.')\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'BOB is 35 next year.'" },
+                        { "id": "b", "value": "'Bob is 35 next year.'" },
+                        { "id": "c", "value": "SyntaxError" },
+                        { "id": "d", "value": "'BOB is {age + 5} next year.'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "f-strings evaluate expressions inside {} → upper() and math both work."
+                },
+                {
+                    "title": "```python\nprint('C:\\\\Windows\\\\System32'.replace('\\\\', '/'))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "'C:/Windows/System32'" },
+                        { "id": "b", "value": "'C:\\Windows\\System32'" },
+                        { "id": "c", "value": "'C:WindowsSystem32'" },
+                        { "id": "d", "value": "TypeError" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Each '\\\\' (escaped backslash) is replaced with '/'."
+                }
+            ]
+        },
+        {
+            "groupTitle": "Which is correct / best practice?",
+            "questions": [
+                {
+                    "title": "Best way to create 'Name: Alice, Age: 28'?",
+                    "answerVariants": [
+                        { "id": "a", "value": "f'Name: {name}, Age: {age}'" },
+                        {
+                            "id": "b",
+                            "value": "'Name: %s, Age: %d' % (name, age)"
+                        },
+                        {
+                            "id": "c",
+                            "value": "'Name: {}, Age: {}'.format(name, age)"
+                        },
+                        {
+                            "id": "d",
+                            "value": "All are acceptable, but a is most modern"
+                        }
+                    ],
+                    "correctAnswerIds": ["d"],
+                    "explanation": "f-strings (Python 3.6+) are cleanest and fastest for simple cases."
+                },
+                {
+                    "title": "How to safely include { and } in an f-string?",
+                    "answerVariants": [
+                        { "id": "a", "value": "Double them: '{{' and '}}'" },
+                        {
+                            "id": "b",
+                            "value": "Escape with \\: '\\{' and '\\}'"
+                        },
+                        { "id": "c", "value": "Use raw f-string: fr'{{}}'" },
+                        { "id": "d", "value": "Cannot be done" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "In f-strings, {{ becomes literal {, }} becomes literal }."
+                },
+                {
+                    "title": "Which method removes characters only from the ends?",
+                    "answerVariants": [
+                        { "id": "a", "value": ".strip()" },
+                        { "id": "b", "value": ".replace(' ', '')" },
+                        { "id": "c", "value": ".split()" },
+                        { "id": "d", "value": ".join()" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`.strip()` (and `.lstrip()`, `.rstrip()`) affect only start/end."
+                },
+                {
+                    "title": "What is a good way to check if a string contains only digits?",
+                    "answerVariants": [
+                        { "id": "a", "value": "s.isdigit()" },
+                        { "id": "b", "value": "s.isnumeric()" },
+                        {
+                            "id": "c",
+                            "value": "Both a and b (with subtle differences)"
+                        },
+                        { "id": "d", "value": "s == int(s)" }
+                    ],
+                    "correctAnswerIds": ["c"],
+                    "explanation": "`.isdigit()` → only 0-9. `.isnumeric()` → also allows ½, Ⅻ, etc. Option d fails on non-integer strings or empty."
+                }
+            ]
+        }
+    ]
+}

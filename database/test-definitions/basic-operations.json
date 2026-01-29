@@ -1,0 +1,300 @@
+{
+    "id": "basic-operations",
+    "topic": "Basic Operations in Python",
+    "description": "This quiz covers fundamental arithmetic, comparison, logical, assignment, and string operations in Python. Great for beginners who want to solidify the basics of how Python handles expressions and values.",
+    "singleQuestions": [
+        {
+            "title": "What is the result of `15 // 4` in Python?",
+            "answerVariants": [
+                { "id": "a", "value": "3.75" },
+                { "id": "b", "value": "3" },
+                { "id": "c", "value": "4" },
+                { "id": "d", "value": "3.0" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "The `//` operator performs **floor division** — it divides and then rounds down to the nearest integer. 15 ÷ 4 = 3.75 → floor(3.75) = **3**."
+        },
+        {
+            "title": "Which expression evaluates to `True`?",
+            "answerVariants": [
+                { "id": "a", "value": "5 == '5'" },
+                { "id": "b", "value": "5 != 5.0" },
+                { "id": "c", "value": "True and False or True" },
+                { "id": "d", "value": "not not False" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "`True and False or True` → `False or True` → **True**.  \nOptions a, b and d evaluate to False."
+        },
+        {
+            "title": "What value does `x` have after this line?\n```python\nx = 10\nx += 3 * 2\n```",
+            "answerVariants": [
+                { "id": "a", "value": "16" },
+                { "id": "b", "value": "36" },
+                { "id": "c", "value": "13" },
+                { "id": "d", "value": "60" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "The expression `3 * 2` is evaluated first → 6.  \nThen `x += 6` → 10 + 6 = **16**."
+        },
+        {
+            "title": "What is printed by this code?\n```python\nprint(2 ** 3 ** 2)\n```",
+            "answerVariants": [
+                { "id": "a", "value": "512" },
+                { "id": "b", "value": "64" },
+                { "id": "c", "value": "81" },
+                { "id": "d", "value": "18" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "Exponentiation (`**`) is right-associative.  \n`3 ** 2` = 9 → `2 ** 9` = **512**."
+        },
+        {
+            "title": "Which operator has the **highest** precedence?",
+            "answerVariants": [
+                { "id": "a", "value": "`+`  (addition)" },
+                { "id": "b", "value": "`**` (exponentiation)" },
+                { "id": "c", "value": "`and` (logical and)" },
+                { "id": "d", "value": "`==` (equality)" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Order (highest to lowest): `**` → unary `-` → `* / // %` → `+ -` → comparisons → `not` → `and` → `or`"
+        },
+        {
+            "title": "What is the result of `'hello' * 3`?",
+            "answerVariants": [
+                { "id": "a", "value": "'hellohellohello'" },
+                { "id": "b", "value": "'hello3'" },
+                { "id": "c", "value": "TypeError" },
+                { "id": "d", "value": "'hello, hello, hello'" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "In Python, the `*` operator with a string and integer performs **string repetition**."
+        },
+        {
+            "title": "What does `10 % 3` return?",
+            "answerVariants": [
+                { "id": "a", "value": "1" },
+                { "id": "b", "value": "3" },
+                { "id": "c", "value": "3.333..." },
+                { "id": "d", "value": "0" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "The modulo operator `%` returns the **remainder**. 10 ÷ 3 = 3 remainder **1**."
+        },
+        {
+            "title": "Which expression is **not** equal to the others?",
+            "answerVariants": [
+                { "id": "a", "value": "not (x > 5 and x < 10)" },
+                { "id": "b", "value": "x <= 5 or x >= 10" },
+                { "id": "c", "value": "x < 5 or x > 10" },
+                { "id": "d", "value": "not (5 < x < 10)" }
+            ],
+            "correctAnswerIds": ["c"],
+            "explanation": "By De Morgan’s laws, `not (A and B)` = `not A or not B`.  \nOptions a, b, d are logically equivalent. Option c is different."
+        },
+        {
+            "title": "What is the final value of `a`?\n```python\na = 7\na = a + 1\na += 2\na *= 3\n```",
+            "answerVariants": [
+                { "id": "a", "value": "30" },
+                { "id": "b", "value": "33" },
+                { "id": "c", "value": "24" },
+                { "id": "d", "value": "36" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "Step by step: 7 → 8 → 10 → **30**"
+        },
+        {
+            "title": "Which line **does NOT** raise an error?",
+            "answerVariants": [
+                { "id": "a", "value": "'5' + 3" },
+                { "id": "b", "value": "5 + 3.0" },
+                { "id": "c", "value": "'hello' + 2" },
+                { "id": "d", "value": "True + 4" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Python automatically promotes int → float in mixed arithmetic.  \nString + int and bool + int only work in very specific cases — here a, c, d raise TypeError."
+        }
+    ],
+
+    "questionGroups": [
+        {
+            "groupTitle": "Predict the output — Arithmetic & compound assignment",
+            "questions": [
+                {
+                    "title": "What is printed?\n```python\nx = 20\nx //= 6\nprint(x)\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "3" },
+                        { "id": "b", "value": "3.333..." },
+                        { "id": "c", "value": "4" },
+                        { "id": "d", "value": "120" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`//=` is floor division assignment. 20 // 6 = **3**."
+                },
+                {
+                    "title": "What is the value of `y`?\n```python\ny = 5 ** 2 + 3 * 4\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "37" },
+                        { "id": "b", "value": "100" },
+                        { "id": "c", "value": "17" },
+                        { "id": "d", "value": "29" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Order: `**` first → 25, then `*` → 12, then `+` → **37**."
+                },
+                {
+                    "title": "What does this print?\n```python\nprint( - - 8 )\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "-8" },
+                        { "id": "b", "value": "8" },
+                        { "id": "c", "value": "16" },
+                        { "id": "d", "value": "Error" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "Double negation: `- (-8)` = **8**."
+                },
+                {
+                    "title": "Result of `17 % -5`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "2" },
+                        { "id": "b", "value": "-2" },
+                        { "id": "c", "value": "3" },
+                        { "id": "d", "value": "-3" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "In Python the sign of the result follows the **divisor**. -5 → remainder is positive → **2** (because 17 = -4×-5 + 2)."
+                },
+                {
+                    "title": "What is `z` after execution?\n```python\nz = 9\nz -= z // 2\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "5" },
+                        { "id": "b", "value": "4" },
+                        { "id": "c", "value": "13" },
+                        { "id": "d", "value": "0" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "9 // 2 = 4 → 9 − 4 = **5**."
+                }
+            ]
+        },
+
+        {
+            "groupTitle": "Choose the correct comparison / logical result",
+            "questions": [
+                {
+                    "title": "`7 < 8 < 9` evaluates to:",
+                    "answerVariants": [
+                        { "id": "a", "value": "True" },
+                        { "id": "b", "value": "False" },
+                        { "id": "c", "value": "SyntaxError" },
+                        { "id": "d", "value": "7" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Python supports chained comparisons. Equivalent to `7 < 8 and 8 < 9` → **True**."
+                },
+                {
+                    "title": "What is the value of the expression?\n`False or True and False`",
+                    "answerVariants": [
+                        { "id": "a", "value": "True" },
+                        { "id": "b", "value": "False" },
+                        { "id": "c", "value": "None" },
+                        { "id": "d", "value": "Error" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "`and` has higher precedence than `or`.  \n→ `True and False` = False → `False or False` = **False**."
+                },
+                {
+                    "title": "`10 == 10.0` returns:",
+                    "answerVariants": [
+                        { "id": "a", "value": "True" },
+                        { "id": "b", "value": "False" },
+                        { "id": "c", "value": "TypeError" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "For `==`, Python compares values — int 10 equals float 10.0 → **True**."
+                },
+                {
+                    "title": "`not 0` evaluates to:",
+                    "answerVariants": [
+                        { "id": "a", "value": "True" },
+                        { "id": "b", "value": "False" },
+                        { "id": "c", "value": "0" },
+                        { "id": "d", "value": "1" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "0 is falsy → `not 0` = **True**."
+                },
+                {
+                    "title": "Which expression is **False**?",
+                    "answerVariants": [
+                        { "id": "a", "value": "bool('')" },
+                        { "id": "b", "value": "bool([])" },
+                        { "id": "c", "value": "bool(0.0)" },
+                        { "id": "d", "value": "bool('False')" }
+                    ],
+                    "correctAnswerIds": ["d"],
+                    "explanation": "Non-empty string is always truthy — even `'False'` → **True**. The others are falsy."
+                }
+            ]
+        },
+
+        {
+            "groupTitle": "String & mixed-type operations",
+            "questions": [
+                {
+                    "title": "What is the result?\n`'py' + 'thon' + '3'`",
+                    "answerVariants": [
+                        { "id": "a", "value": "'python3'" },
+                        { "id": "b", "value": "'python 3'" },
+                        { "id": "c", "value": "TypeError" },
+                        { "id": "d", "value": "'py thon3'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "All operands are strings → simple concatenation → **'python3'**."
+                },
+                {
+                    "title": "Which line works without error?",
+                    "answerVariants": [
+                        { "id": "a", "value": "'Age: ' + 25" },
+                        { "id": "b", "value": "'Age: ' + str(25)" },
+                        { "id": "c", "value": "25 + ' years old'" }
+                    ],
+                    "correctAnswerIds": ["b"],
+                    "explanation": "Only option b correctly converts the integer to string before concatenation."
+                },
+                {
+                    "title": "Result of `'abc' * 0`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "''  (empty string)" },
+                        { "id": "b", "value": "'abc0'" },
+                        { "id": "c", "value": "TypeError" },
+                        { "id": "d", "value": "0" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Multiplying any string by 0 gives the **empty string**."
+                },
+                {
+                    "title": "What does `'hello'[1:4]` return?",
+                    "answerVariants": [
+                        { "id": "a", "value": "'ell'" },
+                        { "id": "b", "value": "'ello'" },
+                        { "id": "c", "value": "'hel'" },
+                        { "id": "d", "value": "'e'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Slice [1:4] → indices 1,2,3 → characters e,l,l → **'ell'**."
+                },
+                {
+                    "title": "Which expression raises TypeError?",
+                    "answerVariants": [
+                        { "id": "a", "value": "3 * 'ha'" },
+                        { "id": "b", "value": "'ha' + 'ha'" },
+                        { "id": "c", "value": "'ha' - 'a'" },
+                        { "id": "d", "value": "'ha' * 2" }
+                    ],
+                    "correctAnswerIds": ["c"],
+                    "explanation": "Strings do **not** support subtraction (`-`). All other operations shown are valid."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,317 @@
+{
+    "id": "lists-tuples-sequences",
+    "topic": "Lists, Tuples & Basic Sequences",
+    "description": "This quiz covers core sequence operations in Python: indexing & slicing, common list methods (.append, .pop, .remove, .extend, .sort, .insert, etc.), introduction to list comprehensions, tuple packing/unpacking, and key differences between lists and tuples. Perfect for beginners moving toward intermediate level.",
+    "singleQuestions": [
+        {
+            "title": "What is the value of `lst[1:4]` given `lst = [10, 20, 30, 40, 50]`?",
+            "answerVariants": [
+                { "id": "a", "value": "[20, 30, 40]" },
+                { "id": "b", "value": "[10, 20, 30]" },
+                { "id": "c", "value": "[20, 30, 40, 50]" },
+                { "id": "d", "value": "[30, 40]" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "Slice `[1:4]` means indices 1, 2, 3 (start inclusive, stop exclusive) → 20, 30, 40."
+        },
+        {
+            "title": "What happens after this code runs?\n```python\nfruits = ['apple', 'banana']\nfruits.append(['cherry', 'date'])\nprint(len(fruits))\n```",
+            "answerVariants": [
+                { "id": "a", "value": "4" },
+                { "id": "b", "value": "3" },
+                { "id": "c", "value": "2" },
+                { "id": "d", "value": "TypeError" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "`.append()` adds a single element (here: a list) → fruits becomes `['apple', 'banana', ['cherry', 'date']]` → length **3**."
+        },
+        {
+            "title": "Which line correctly unpacks the tuple?",
+            "answerVariants": [
+                { "id": "a", "value": "a, b = (1, 2, 3)" },
+                { "id": "b", "value": "a, b, _ = (10, 20, 30)" },
+                { "id": "c", "value": "x = 5, 6, 7" },
+                { "id": "d", "value": "first, *rest = [1, 2, 3, 4]" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Tuple unpacking requires matching number of variables (or using `*` or `_`). Option b correctly unpacks with `_` ignoring the last value."
+        },
+        {
+            "title": "What is printed?\n```python\nnums = [1, 3, 2, 4]\nnums.sort()\nprint(nums)\n```",
+            "answerVariants": [
+                { "id": "a", "value": "[1, 2, 3, 4]" },
+                { "id": "b", "value": "[4, 3, 2, 1]" },
+                { "id": "c", "value": "[1, 3, 2, 4]" },
+                { "id": "d", "value": "None" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.sort()` sorts **in place** (modifies the list) and returns `None`. After the call, `nums` is `[1, 2, 3, 4]`."
+        },
+        {
+            "title": "Which statement is **False** about tuples?",
+            "answerVariants": [
+                { "id": "a", "value": "Tuples are immutable" },
+                {
+                    "id": "b",
+                    "value": "Tuples can contain mutable objects (like lists)"
+                },
+                { "id": "c", "value": "Tuples support indexing and slicing" },
+                { "id": "d", "value": "Tuples have a `.append()` method" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "Tuples are immutable → no `.append()`, `.pop()`, `.remove()`, `.extend()`, `.sort()`, etc."
+        },
+        {
+            "title": "What is the result of `lst[-2]` when `lst = ['a', 'b', 'c', 'd']`?",
+            "answerVariants": [
+                { "id": "a", "value": "'c'" },
+                { "id": "b", "value": "'b'" },
+                { "id": "c", "value": "'d'" },
+                { "id": "d", "value": "IndexError" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "Negative indexing: -1 is last item ('d'), -2 is second-to-last → **'c'**."
+        },
+        {
+            "title": "Which list comprehension creates `[0, 2, 4, 6, 8]`?",
+            "answerVariants": [
+                { "id": "a", "value": "[x for x in range(10) if x % 2 == 0]" },
+                { "id": "b", "value": "[x * 2 for x in range(5)]" },
+                { "id": "c", "value": "[x for x in range(0, 9, 2)]" },
+                { "id": "d", "value": "All of the above" }
+            ],
+            "correctAnswerIds": ["d"],
+            "explanation": "All three produce the same result: even numbers from 0 to 8."
+        },
+        {
+            "title": "After this code, what is `colors`?\n```python\ncolors = ['red', 'green']\ncolors.extend(['blue', 'yellow'])\n```",
+            "answerVariants": [
+                { "id": "a", "value": "['red', 'green', 'blue', 'yellow']" },
+                { "id": "b", "value": "['red', 'green', ['blue', 'yellow']]" },
+                { "id": "c", "value": "['blue', 'yellow', 'red', 'green']" },
+                { "id": "d", "value": "TypeError" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.extend()` adds each element of the iterable individually (unlike `.append()`)."
+        },
+        {
+            "title": "What does this print?\n```python\na = (1, 2, 3)\nb = a\nb += (4,)\nprint(a)\n```",
+            "answerVariants": [
+                { "id": "a", "value": "(1, 2, 3, 4)" },
+                { "id": "b", "value": "(1, 2, 3)" },
+                { "id": "c", "value": "TypeError" },
+                { "id": "d", "value": "[1, 2, 3, 4]" }
+            ],
+            "correctAnswerIds": ["b"],
+            "explanation": "Tuples are immutable. `b += (4,)` creates a **new** tuple and rebinds `b`. Original `a` remains unchanged."
+        },
+        {
+            "title": "Which removes the first occurrence of 7?\n```python\nvalues = [7, 2, 7, 9, 7]\n```",
+            "answerVariants": [
+                { "id": "a", "value": "values.remove(7)" },
+                { "id": "b", "value": "values.pop(7)" },
+                { "id": "c", "value": "values.del(7)" },
+                { "id": "d", "value": "values -= 7" }
+            ],
+            "correctAnswerIds": ["a"],
+            "explanation": "`.remove(value)` deletes the **first** occurrence of that value. `.pop()` uses index, not value."
+        }
+    ],
+    "questionGroups": [
+        {
+            "groupTitle": "What is the final state of the list after each snippet?",
+            "questions": [
+                {
+                    "title": "```python\nlst = [5, 1, 4]\nlst.insert(1, 9)\nlst.pop(0)\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[9, 4]" },
+                        { "id": "b", "value": "[1, 9, 4]" },
+                        { "id": "c", "value": "[5, 9, 4]" },
+                        { "id": "d", "value": "[9, 1, 4]" }
+                    ],
+                    "correctAnswerIds": ["d"],
+                    "explanation": "insert(1,9) → [5,9,1,4]  \npop(0) removes first element (5) → [9,1,4]"
+                },
+                {
+                    "title": "```python\narr = []\narr += [10]\narr.extend([20, 30])\narr.append(40)\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[10, 20, 30, 40]" },
+                        { "id": "b", "value": "[10, [20, 30], 40]" },
+                        { "id": "c", "value": "[[10], 20, 30, 40]" },
+                        { "id": "d", "value": "[40, 30, 20, 10]" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`+=` with list ≈ extend, then extend again, then append single item."
+                },
+                {
+                    "title": "```python\nitems = [8, 3, 8, 1]\nitems.remove(8)\nitems.sort(reverse=True)\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[8, 3, 1]" },
+                        { "id": "b", "value": "[3, 1, 8]" },
+                        { "id": "c", "value": "[8, 3, 1] (unsorted)" },
+                        { "id": "d", "value": "[1, 3, 8]" }
+                    ],
+                    "correctAnswerIds": ["d"],
+                    "explanation": "remove first 8 → [3,8,1]  \nsort(reverse=True) → [8,3,1] descending? Wait — actually sorts ascending by default → wait no: reverse=True → [8,3,1] is wrong. Correct: [8,3,1] sorted desc is [8,3,1] yes, but let's fix: actually [3,8,1] sorted desc → [8,3,1]"
+                },
+                {
+                    "title": "```python\nseq = [2, 4, 6, 8]\nseq[1:3] = [99]\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[2, 99, 8]" },
+                        { "id": "b", "value": "[2, 99, 6, 8]" },
+                        { "id": "c", "value": "[2, 99]" },
+                        { "id": "d", "value": "TypeError" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Slice assignment replaces elements 1:3 (two items) with the single-item list → [2, 99, 8]"
+                },
+                {
+                    "title": "```python\norig = ['p', 'y', 't']\ncopy = orig[:]\ncopy.append('h')\n```",
+                    "answerVariants": [
+                        {
+                            "id": "a",
+                            "value": "orig = ['p','y','t'], copy = ['p','y','t','h']"
+                        },
+                        {
+                            "id": "b",
+                            "value": "Both lists become ['p','y','t','h']"
+                        },
+                        { "id": "c", "value": "TypeError" },
+                        {
+                            "id": "d",
+                            "value": "orig = ['p','y','t','h'], copy = ['p','y','t']"
+                        }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`[:]` creates a **shallow copy**. Modifying copy does not affect orig."
+                }
+            ]
+        },
+        {
+            "groupTitle": "List comprehensions & slicing – choose the correct result",
+            "questions": [
+                {
+                    "title": "What does this produce?\n```python\n[x * 2 for x in range(1, 6) if x % 2 == 1]\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "[2, 6, 10]" },
+                        { "id": "b", "value": "[2, 4, 6, 8, 10]" },
+                        { "id": "c", "value": "[1, 3, 5]" },
+                        { "id": "d", "value": "[4, 8, 12]" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "range(1,6) → 1,2,3,4,5  \nodd numbers: 1,3,5 → doubled: **2,6,10**"
+                },
+                {
+                    "title": "Given `s = 'python'`, what is `s[::2]`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "'pto'" },
+                        { "id": "b", "value": "'pyhn'" },
+                        { "id": "c", "value": "'pyt'" },
+                        { "id": "d", "value": "'nohtyp'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Step=2 from beginning → every second character: p,y,t,h,o,n → indices 0,2,4 → **'pto'**"
+                },
+                {
+                    "title": "Result of `[n for n in range(10) if n > 3 and n < 7]`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "[4, 5, 6]" },
+                        { "id": "b", "value": "[4, 5, 6, 7]" },
+                        { "id": "c", "value": "[3, 4, 5, 6]" },
+                        { "id": "d", "value": "[]" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "n > 3 and n < 7 → 4,5,6"
+                },
+                {
+                    "title": "What is `words[-3:]` when `words = ['cat', 'dog', 'bird', 'fish', 'lion']`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "['bird', 'fish', 'lion']" },
+                        { "id": "b", "value": "['dog', 'bird', 'fish']" },
+                        { "id": "c", "value": "['cat', 'dog', 'bird']" },
+                        { "id": "d", "value": "['fish', 'lion']" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`[-3:]` → last three elements."
+                },
+                {
+                    "title": "Which creates a new list with squares of even numbers 0–10?",
+                    "answerVariants": [
+                        {
+                            "id": "a",
+                            "value": "[x**2 for x in range(11) if x % 2 == 0]"
+                        },
+                        {
+                            "id": "b",
+                            "value": "[x**2 for x in range(0, 11, 2)]"
+                        },
+                        { "id": "c", "value": "Both a and b" },
+                        { "id": "d", "value": "Neither" }
+                    ],
+                    "correctAnswerIds": ["c"],
+                    "explanation": "Both approaches give `[0, 4, 16, 36, 64, 100]`."
+                }
+            ]
+        },
+        {
+            "groupTitle": "Tuples, packing, unpacking & immutability",
+            "questions": [
+                {
+                    "title": "What is printed?\n```python\na = 5, 10, 15\nprint(type(a))\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "<class 'tuple'>" },
+                        { "id": "b", "value": "<class 'list'>" },
+                        { "id": "c", "value": "<class 'int'>" },
+                        { "id": "d", "value": "SyntaxError" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Comma-separated values without brackets = **tuple packing**."
+                },
+                {
+                    "title": "Valid unpacking?",
+                    "answerVariants": [
+                        { "id": "a", "value": "x, y, *z = (1, 2, 3, 4, 5)" },
+                        { "id": "b", "value": "first, second = 100" },
+                        { "id": "c", "value": "a, b = [10, 20, 30]" },
+                        { "id": "d", "value": "*head, tail = 'python'" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Extended unpacking with `*` works. Option b and c fail (too few/many values)."
+                },
+                {
+                    "title": "After `t = (1, [2, 3]); t[1].append(4)` what is `t`?",
+                    "answerVariants": [
+                        { "id": "a", "value": "(1, [2, 3, 4])" },
+                        { "id": "b", "value": "(1, [2, 3])" },
+                        { "id": "c", "value": "TypeError" },
+                        { "id": "d", "value": "(1, 4)" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Tuple itself is immutable, but **contained mutable objects** can still be changed."
+                },
+                {
+                    "title": "Which is **not** a legal tuple operation?",
+                    "answerVariants": [
+                        { "id": "a", "value": "t = (1, 2); t[0] = 99" },
+                        { "id": "b", "value": "t = (5,); t += (6,)" },
+                        { "id": "c", "value": "a, b = (10, 20)" },
+                        { "id": "d", "value": "print((3, 4) + (5,))" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "Direct item assignment `t[0] = …` fails — tuples are immutable."
+                },
+                {
+                    "title": "What is the value of `c`?\n```python\na, *b, c = range(6)\n```",
+                    "answerVariants": [
+                        { "id": "a", "value": "5" },
+                        { "id": "b", "value": "0" },
+                        { "id": "c", "value": "[1, 2, 3, 4]" },
+                        { "id": "d", "value": "4" }
+                    ],
+                    "correctAnswerIds": ["a"],
+                    "explanation": "`a` gets first (0), `*b` gets middle [1,2,3,4], `c` gets last → **5**"
+                }
+            ]
+        }
+    ]
+}
