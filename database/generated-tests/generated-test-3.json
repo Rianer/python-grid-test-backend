@@ -1,0 +1,233 @@
+{
+  "id": "generated-test-3",
+  "topic": "Generated Test #3",
+  "description": "Lists, Tuples & Basic Sequences, Control Flow in Python, Dictionaries & Sets",
+  "singleQuestions": [
+    {
+      "title": "What is the value of `lst[1:4]` given `lst = [10, 20, 30, 40, 50]`?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "[20, 30, 40]"
+        },
+        {
+          "id": "b",
+          "value": "[10, 20, 30]"
+        },
+        {
+          "id": "c",
+          "value": "[20, 30, 40, 50]"
+        },
+        {
+          "id": "d",
+          "value": "[30, 40]"
+        }
+      ],
+      "correctAnswerIds": [
+        "a"
+      ],
+      "explanation": "Slice `[1:4]` means indices 1, 2, 3 (start inclusive, stop exclusive) → 20, 30, 40."
+    },
+    {
+      "title": "After this code, what is `colors`?\n```python\ncolors = ['red', 'green']\ncolors.extend(['blue', 'yellow'])\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "['red', 'green', 'blue', 'yellow']"
+        },
+        {
+          "id": "b",
+          "value": "['red', 'green', ['blue', 'yellow']]"
+        },
+        {
+          "id": "c",
+          "value": "['blue', 'yellow', 'red', 'green']"
+        },
+        {
+          "id": "d",
+          "value": "TypeError"
+        }
+      ],
+      "correctAnswerIds": [
+        "a"
+      ],
+      "explanation": "`.extend()` adds each element of the iterable individually (unlike `.append()`)."
+    },
+    {
+      "title": "What does this print?\n```python\na = (1, 2, 3)\nb = a\nb += (4,)\nprint(a)\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "(1, 2, 3, 4)"
+        },
+        {
+          "id": "b",
+          "value": "(1, 2, 3)"
+        },
+        {
+          "id": "c",
+          "value": "TypeError"
+        },
+        {
+          "id": "d",
+          "value": "[1, 2, 3, 4]"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "Tuples are immutable. `b += (4,)` creates a **new** tuple and rebinds `b`. Original `a` remains unchanged."
+    },
+    {
+      "title": "Which expression is equivalent to `not (a and b)`?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "`not a and not b`"
+        },
+        {
+          "id": "b",
+          "value": "`not a or not b`"
+        },
+        {
+          "id": "c",
+          "value": "`a or b`"
+        },
+        {
+          "id": "d",
+          "value": "`not a and b`"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "De Morgan's law: `not (A and B)` ⇔ `not A or not B`."
+    },
+    {
+      "title": "What is printed?\n```python\nfor x in range(6):\n    if x == 3:\n        continue\n    print(x, end='')\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "012345"
+        },
+        {
+          "id": "b",
+          "value": "01245"
+        },
+        {
+          "id": "c",
+          "value": "0123"
+        },
+        {
+          "id": "d",
+          "value": "345"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "`continue` skips the rest of the loop body when x==3 → 3 is not printed."
+    },
+    {
+      "title": "Which range produces exactly [5, 8, 11, 14]?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "`range(5, 15, 3)`"
+        },
+        {
+          "id": "b",
+          "value": "`range(5, 14, 3)`"
+        },
+        {
+          "id": "c",
+          "value": "`range(5, 16, 3)`"
+        },
+        {
+          "id": "d",
+          "value": "`range(5, 15)`"
+        }
+      ],
+      "correctAnswerIds": [
+        "a"
+      ],
+      "explanation": "5, 5+3=8, 8+3=11, 11+3=14, 14+3=17 (≥15 → stop)."
+    },
+    {
+      "title": "What does this code print?\n```python\ns = {1, 2, 3}\ns.add(2)\nprint(len(s))\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "4"
+        },
+        {
+          "id": "b",
+          "value": "3"
+        },
+        {
+          "id": "c",
+          "value": "2"
+        },
+        {
+          "id": "d",
+          "value": "TypeError"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "Sets automatically eliminate duplicates. Adding an existing element does nothing → length remains **3**."
+    },
+    {
+      "title": "Which is the most efficient way to check if a key exists in a dictionary?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "'key' in my_dict"
+        },
+        {
+          "id": "b",
+          "value": "my_dict.get('key') is not None"
+        },
+        {
+          "id": "c",
+          "value": "'key' in my_dict.keys()"
+        },
+        {
+          "id": "d",
+          "value": "my_dict['key'] != KeyError"
+        }
+      ],
+      "correctAnswerIds": [
+        "a"
+      ],
+      "explanation": "`in` on a dict directly checks keys and is the fastest & most readable idiom."
+    },
+    {
+      "title": "What does `d.items()` return in Python 3?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "A list of tuples"
+        },
+        {
+          "id": "b",
+          "value": "A view object"
+        },
+        {
+          "id": "c",
+          "value": "A set of keys"
+        },
+        {
+          "id": "d",
+          "value": "A generator"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "`.items()` returns a **dict_items** view — dynamic and memory efficient."
+    }
+  ],
+  "questionGroups": []
+}

@@ -1,0 +1,484 @@
+{
+  "id": "generated-test-1",
+  "topic": "Generated Test #1",
+  "description": "Data Types, Dictionaries & Sets, Control Flow in Python",
+  "singleQuestions": [
+    {
+      "title": "What is the type of `my_var` after this line?\n```python\nmy_var = { 'a': 1, 'b': 2 }\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "set"
+        },
+        {
+          "id": "b",
+          "value": "tuple"
+        },
+        {
+          "id": "c",
+          "value": "list"
+        },
+        {
+          "id": "d",
+          "value": "dict"
+        },
+        {
+          "id": "e",
+          "value": "frozenset"
+        }
+      ],
+      "correctAnswerIds": [
+        "d"
+      ],
+      "explanation": "Curly braces with `key: value` pairs create a **dictionary** (`dict`). Sets use curly braces without colons."
+    },
+    {
+      "title": "Which data type does **not** allow duplicate values by default?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "list"
+        },
+        {
+          "id": "b",
+          "value": "tuple"
+        },
+        {
+          "id": "c",
+          "value": "set"
+        },
+        {
+          "id": "d",
+          "value": "str"
+        },
+        {
+          "id": "e",
+          "value": "Both c and d"
+        }
+      ],
+      "correctAnswerIds": [
+        "c"
+      ],
+      "explanation": "Sets automatically remove duplicates — `{1, 2, 2, 3}` becomes `{1, 2, 3}`. Lists, tuples and strings allow duplicates."
+    },
+    {
+      "title": "What will be the type of `result`?\n```a = [10]\nresult = a * 3```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "int"
+        },
+        {
+          "id": "b",
+          "value": "list"
+        },
+        {
+          "id": "c",
+          "value": "tuple"
+        },
+        {
+          "id": "d",
+          "value": "str"
+        },
+        {
+          "id": "e",
+          "value": "set"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "Multiplying a list by an integer repeats the list → `[10] * 3` becomes `[10, 10, 10]` (still a list)."
+    },
+    {
+      "title": "Which data type is **immutable** in Python?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "list"
+        },
+        {
+          "id": "b",
+          "value": "dictionary"
+        },
+        {
+          "id": "c",
+          "value": "set"
+        },
+        {
+          "id": "d",
+          "value": "tuple"
+        },
+        {
+          "id": "e",
+          "value": "bytearray"
+        }
+      ],
+      "correctAnswerIds": [
+        "d"
+      ],
+      "explanation": "Tuples are immutable. Lists, dictionaries, sets and bytearrays are mutable."
+    },
+    {
+      "title": "What Python type does the literal `()` represent?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "list"
+        },
+        {
+          "id": "b",
+          "value": "tuple"
+        },
+        {
+          "id": "c",
+          "value": "set"
+        },
+        {
+          "id": "d",
+          "value": "dict"
+        },
+        {
+          "id": "e",
+          "value": "empty"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "`()` is an empty tuple. Empty list = `[]`, empty set = `set()`, empty dict = `{}`."
+    },
+    {
+      "title": "Which operation gives elements present in **either** set but not both?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "set1 | set2"
+        },
+        {
+          "id": "b",
+          "value": "set1 & set2"
+        },
+        {
+          "id": "c",
+          "value": "set1 ^ set2"
+        },
+        {
+          "id": "d",
+          "value": "set1 - set2"
+        }
+      ],
+      "correctAnswerIds": [
+        "c"
+      ],
+      "explanation": "`^` is the **symmetric difference** operator → elements in exactly one of the sets."
+    },
+    {
+      "title": "What is the output?\n```python\nd = {}\nd.update({'a':1}, b=2)\nprint(d)\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "{'a': 1, 'b': 2}"
+        },
+        {
+          "id": "b",
+          "value": "{'a': 1}"
+        },
+        {
+          "id": "c",
+          "value": "TypeError"
+        },
+        {
+          "id": "d",
+          "value": "{'update': {'a':1}, 'b':2}"
+        }
+      ],
+      "correctAnswerIds": [
+        "a"
+      ],
+      "explanation": "`.update()` accepts multiple mappings or keyword arguments → merges them all."
+    },
+    {
+      "title": "What does `d.items()` return in Python 3?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "A list of tuples"
+        },
+        {
+          "id": "b",
+          "value": "A view object"
+        },
+        {
+          "id": "c",
+          "value": "A set of keys"
+        },
+        {
+          "id": "d",
+          "value": "A generator"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "`.items()` returns a **dict_items** view — dynamic and memory efficient."
+    },
+    {
+      "title": "What does this code print?\n```python\ns = {1, 2, 3}\ns.add(2)\nprint(len(s))\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "4"
+        },
+        {
+          "id": "b",
+          "value": "3"
+        },
+        {
+          "id": "c",
+          "value": "2"
+        },
+        {
+          "id": "d",
+          "value": "TypeError"
+        }
+      ],
+      "correctAnswerIds": [
+        "b"
+      ],
+      "explanation": "Sets automatically eliminate duplicates. Adding an existing element does nothing → length remains **3**."
+    },
+    {
+      "title": "How do you remove duplicates from this list while preserving order (Python 3.7+)?\n```python\nlst = [5, 2, 5, 3, 2, 8]\n```",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "list(dict.fromkeys(lst))"
+        },
+        {
+          "id": "b",
+          "value": "list(set(lst))"
+        },
+        {
+          "id": "c",
+          "value": "[x for i, x in enumerate(lst) if x not in lst[:i]]"
+        },
+        {
+          "id": "d",
+          "value": "Both a and c"
+        }
+      ],
+      "correctAnswerIds": [
+        "d"
+      ],
+      "explanation": "Since Python 3.7 dicts preserve insertion order → `dict.fromkeys()` is a clean, efficient way. Option c is the classic list comprehension approach."
+    },
+    {
+      "title": "Which statement is syntactically correct but does nothing?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "`break`"
+        },
+        {
+          "id": "b",
+          "value": "`continue`"
+        },
+        {
+          "id": "c",
+          "value": "`pass`"
+        },
+        {
+          "id": "d",
+          "value": "`exit()`"
+        }
+      ],
+      "correctAnswerIds": [
+        "c"
+      ],
+      "explanation": "`pass` is a no-operation statement — legal anywhere a statement is required."
+    },
+    {
+      "title": "Which range produces exactly [5, 8, 11, 14]?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "`range(5, 15, 3)`"
+        },
+        {
+          "id": "b",
+          "value": "`range(5, 14, 3)`"
+        },
+        {
+          "id": "c",
+          "value": "`range(5, 16, 3)`"
+        },
+        {
+          "id": "d",
+          "value": "`range(5, 15)`"
+        }
+      ],
+      "correctAnswerIds": [
+        "a"
+      ],
+      "explanation": "5, 5+3=8, 8+3=11, 11+3=14, 14+3=17 (≥15 → stop)."
+    },
+    {
+      "title": "Which condition is **True**?",
+      "answerVariants": [
+        {
+          "id": "a",
+          "value": "5 < 3 < 7"
+        },
+        {
+          "id": "b",
+          "value": "10 == 10.0 and '10' == 10"
+        },
+        {
+          "id": "c",
+          "value": "not False or False"
+        },
+        {
+          "id": "d",
+          "value": "bool(0) and True"
+        }
+      ],
+      "correctAnswerIds": [
+        "c"
+      ],
+      "explanation": "not False → True → True or anything → **True**.  \nOthers are False."
+    }
+  ],
+  "questionGroups": [
+    {
+      "groupTitle": "Predict the result or choose the correct statement",
+      "questions": [
+        {
+          "title": "What does this print?\n```python\nd = {'one':1, 'two':2}\nfor k, v in d.items():\n    print(k, end='')\n```",
+          "answerVariants": [
+            {
+              "id": "a",
+              "value": "onetwo (order not guaranteed before 3.7)"
+            },
+            {
+              "id": "b",
+              "value": "one:1 two:2"
+            },
+            {
+              "id": "c",
+              "value": "1 2"
+            },
+            {
+              "id": "d",
+              "value": "SyntaxError"
+            }
+          ],
+          "correctAnswerIds": [
+            "a"
+          ],
+          "explanation": "`.items()` gives key-value pairs. In Python 3.7+ insertion order is preserved, but question focuses on iteration."
+        },
+        {
+          "title": "Fastest way to remove duplicates from `[1,2,2,3,1,4]` while **not** preserving order?",
+          "answerVariants": [
+            {
+              "id": "a",
+              "value": "list(set(lst))"
+            },
+            {
+              "id": "b",
+              "value": "dict.fromkeys(lst).keys()"
+            },
+            {
+              "id": "c",
+              "value": "[x for x in lst if x not in seen] with seen=set()"
+            },
+            {
+              "id": "d",
+              "value": "sorted(set(lst))"
+            }
+          ],
+          "correctAnswerIds": [
+            "a"
+          ],
+          "explanation": "`set()` is the most concise and usually fastest for order-insensitive deduplication."
+        },
+        {
+          "title": "Which expression returns **True**?",
+          "answerVariants": [
+            {
+              "id": "a",
+              "value": "3 in {1: 'a', 2: 'b', 3: 'c'}"
+            },
+            {
+              "id": "b",
+              "value": "'a' in {1: 'a', 2: 'b'}"
+            },
+            {
+              "id": "c",
+              "value": "1.0 in {1, 2, 3}"
+            },
+            {
+              "id": "d",
+              "value": "Both a and c"
+            }
+          ],
+          "correctAnswerIds": [
+            "d"
+          ],
+          "explanation": "`in` on dict checks **keys**. `1.0 == 1` is True → 1.0 is considered in the set."
+        },
+        {
+          "title": "What is `d.pop('x', 99)` when `'x'` is **not** in `d`?",
+          "answerVariants": [
+            {
+              "id": "a",
+              "value": "99"
+            },
+            {
+              "id": "b",
+              "value": "KeyError"
+            },
+            {
+              "id": "c",
+              "value": "None"
+            },
+            {
+              "id": "d",
+              "value": "0"
+            }
+          ],
+          "correctAnswerIds": [
+            "a"
+          ],
+          "explanation": "`.pop(key, default)` returns default if key missing — safe removal."
+        },
+        {
+          "title": "Which set operation is equivalent to elements in A or B but **not** in both?",
+          "answerVariants": [
+            {
+              "id": "a",
+              "value": "A.symmetric_difference(B)"
+            },
+            {
+              "id": "b",
+              "value": "A.difference(B)"
+            },
+            {
+              "id": "c",
+              "value": "A.intersection(B)"
+            },
+            {
+              "id": "d",
+              "value": "A.union(B)"
+            }
+          ],
+          "correctAnswerIds": [
+            "a"
+          ],
+          "explanation": "`.symmetric_difference()` or `^` gives the XOR-like operation for sets."
+        }
+      ]
+    }
+  ]
+}

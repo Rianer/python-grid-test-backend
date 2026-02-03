@@ -48,7 +48,7 @@ function startServer() {
 
     app.get("/health", (req: Request, res: Response) => {
         generateNewTest().then((genTest) => {
-            res.json({ message: "API is up and running!" });
+            res.json(genTest);
         });
     });
 

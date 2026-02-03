@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import * as fs from "fs";
 import path from "path";
 import { TestDefinition } from "../models/questions.model";
 import { DatabaseDefinition, TestParameters } from "../models/database.model";
@@ -13,13 +13,15 @@ async function getAvailableTestIds(
         const dirPath = path.resolve(process.cwd(), directory);
 
         try {
-            await fs.access(dirPath);
+            await fs.promises.access(dirPath);
         } catch {
             console.warn(`Directory not found: ${dirPath}`);
             return [];
         }
 
-        const entries = await fs.readdir(dirPath, { withFileTypes: true });
+        const entries = await fs.promises.readdir(dirPath, {
+            withFileTypes: true,
+        });
 
         const testNames = entries
             .filter(
@@ -47,7 +49,7 @@ async function getTestDefinitions(
 
     let dirExists = false;
     try {
-        await fs.access(baseDir);
+        await fs.promises.access(baseDir);
         dirExists = true;
     } catch {
         console.warn(`Test definitions directory not found: ${baseDir}`);
@@ -62,7 +64,7 @@ async function getTestDefinitions(
         const filePath = path.join(baseDir, `${safeId}.json`);
 
         try {
-            const content = await fs.readFile(filePath, "utf-8");
+            const content = await fs.promises.readFile(filePath, "utf-8");
             const data = JSON.parse(content);
 
             if (!data || typeof data !== "object") {
@@ -116,4 +118,64 @@ async function getDatabaseDefinition(): Promise<DatabaseDefinition> {
     return { ..._databaseDefinition } as DatabaseDefinition;
 }
 
-export { getDatabaseDefinition, getTestDefinitions };
+function getNumberOfGeneratedTests(
+    directoryPath: string = "database/generated-tests",
+): number {
+    try {
+        const resolvedPath = path.resolve(directoryPath);
+
+        if (!fs.existsSync(resolvedPath)) {
+            console.warn(`Directory does not exist: ${resolvedPath}`);
+            return 0;
+        }
+
+        const files = fs.readdirSync(resolvedPath);
+
+        const jsonFiles = files.filter(
+            (file) => path.extname(file).toLowerCase() === ".json",
+        );
+
+        return jsonFiles.length;
+    } catch (error) {
+        console.error("Error counting JSON files:", error);
+        return 0;
+    }
+}
+
+function saveTestDefinitionToFile(
+    testDefinition: TestDefinition,
+    directoryPath: string = "database/generated-tests",
+): void {
+    // Ensure the directory exists
+    try {
+        // Create directory if it doesn't exist (recursive option creates nested directories)
+        fs.mkdirSync(directoryPath, { recursive: true });
+    } catch (error) {
+        console.error(`Error creating directory: ${error}`);
+        throw error;
+    }
+
+    // Construct the full file path
+    const filePath = path.join(directoryPath, `${testDefinition.id}.json`);
+
+    try {
+        // Write the test definition to the JSON file
+        // The null and 2 arguments pretty-print the JSON with 2-space indentation
+        fs.writeFileSync(filePath, JSON.stringify(testDefinition, null, 2), {
+            encoding: "utf8",
+            flag: "w", // 'w' flag means write and overwrite existing file
+        });
+
+        console.log(`Test definition file generated: ${filePath}`);
+    } catch (error) {
+        console.error(`Error writing test definition file: ${error}`);
+        throw error;
+    }
+}
+
+export {
+    getDatabaseDefinition,
+    getTestDefinitions,
+    getNumberOfGeneratedTests,
+    saveTestDefinitionToFile,
+};

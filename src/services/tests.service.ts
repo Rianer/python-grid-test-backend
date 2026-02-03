@@ -5,11 +5,18 @@ import {
     QuestionGroup,
     TestDefinition,
 } from "../models/questions.model";
-import { getDatabaseDefinition } from "./database.service";
+import {
+    getDatabaseDefinition,
+    getNumberOfGeneratedTests,
+    saveTestDefinitionToFile,
+} from "./database.service";
 import { log } from "console";
 
-function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
+function getRandomInt(max: number, min?: number) {
+    const actualMin = min ? Math.floor(min) : undefined;
+    const actualMax = actualMin ? max - actualMin : max;
+
+    return Math.floor(Math.random() * actualMax) + (actualMin || 0);
 }
 
 function readTestDefinition(testId: string): TestDefinition | null {
@@ -85,7 +92,7 @@ function pickRandomQuestions(
         );
     }
 
-    for (let iteration = 0; iteration < sQuestions; iteration++) {
+    for (let iteration = 0; iteration < qGroups; iteration++) {
         const selectionIndex = getRandomInt(testCopy.questionGroups.length);
         selectedGroups.push(
             testCopy.questionGroups.splice(selectionIndex, 1)[0],
@@ -157,7 +164,64 @@ async function generateNewTest() {
         ? Math.floor(0.9 * generationRanges.maxQuestionGroups)
         : Math.floor(0.7 * generationRanges.maxQuestionGroups);
 
-    // Use the pickRandomQuestions method to select random number of questions from each test
+    let selectedQuestions = 0;
+    let selectedGroups = 0;
+
+    const randomSingleQuestions: BaseQuestion[] = [];
+    const randomQuestionGroups: QuestionGroup[] = [];
+
+    let generatedTestDescription = "";
+
+    selectedTests.forEach((test) => {
+        const missingQuestions = Math.max(maxSQuestions - selectedQuestions, 0);
+        const missingGroups = Math.max(maxQGroups - selectedGroups, 0);
+
+        const sqUpperBoundaryRNG = Math.min(
+            missingQuestions,
+            generationRanges.minSingleQuestionsCount,
+        );
+        const qgUpperBoundaryRNG = Math.min(
+            missingGroups,
+            generationRanges.minQuestionGroupsCount,
+        );
+
+        const qRNG = getRandomInt(sqUpperBoundaryRNG, sqUpperBoundaryRNG / 3);
+        const gRNG = getRandomInt(qgUpperBoundaryRNG, qgUpperBoundaryRNG / 3);
+
+        const { selectedQuestions: questions, selectedGroups: groups } =
+            pickRandomQuestions(test, qRNG, gRNG);
+
+        if (questions.length || groups.length) {
+            generatedTestDescription += generatedTestDescription.length
+                ? `, ${test.topic}`
+                : `${test.topic}`;
+        }
+
+        randomSingleQuestions.push(...questions);
+        randomQuestionGroups.push(...groups);
+
+        selectedQuestions += questions.length;
+        selectedGroups += groups.length;
+    });
+
+    const generatedTestTopic = `Generated Test #${getNumberOfGeneratedTests()}`;
+
+    const generatedTest = {
+        id: generatedTestTopic
+            .replace("#", "")
+            .replace(/ /g, "-")
+            .toLowerCase(),
+        topic: generatedTestTopic,
+        description: generatedTestDescription.length
+            ? generatedTestDescription
+            : "This is a randomly generated test",
+        singleQuestions: randomSingleQuestions,
+        questionGroups: randomQuestionGroups,
+    } as TestDefinition;
+
+    saveTestDefinitionToFile(generatedTest);
+
+    return generatedTest;
 }
 
 export { readTestDefinition, generateNewTest };
