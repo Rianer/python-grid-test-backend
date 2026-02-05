@@ -35,20 +35,35 @@ export let databaseDefinition: DatabaseDefinition | null = null;
 function startServer() {
     app.use(cors(corsOptions));
     app.use(express.json());
-    app.options("/test/random", cors(corsOptions));
 
     app.get("/test/random", (req: Request, res: Response) => {
-        const parsed = readTestDefinition("data-types");
+        generateNewTest().then((genTest) => {
+            res.status(201).json(genTest);
+        });
+    });
+
+    app.get("/test/:id", (req: Request, res: Response) => {
+        const testId = String(req.params.id);
+        const parsed = readTestDefinition(testId);
+
         if (parsed) {
             res.status(200).json(parsed);
         } else {
-            res.status(404).json({ message: "No tests were found!" });
+            res.status(404).json({
+                message: `No test found with ID: ${testId}`,
+            });
         }
     });
 
+    app.get("/allTests", (req: Request, res: Response) => {
+        res.status(200).json({
+            testIds: databaseDefinition?.testIds || [],
+        });
+    });
+
     app.get("/health", (req: Request, res: Response) => {
-        generateNewTest().then((genTest) => {
-            res.json(genTest);
+        res.status(200).json({
+            message: "Service is running",
         });
     });
 
