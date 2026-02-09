@@ -36,3 +36,6 @@ Thumbs.db
 
 # Misc
 npm-debug.log*
+
+# Generated Tests
+database/generated-tests/
