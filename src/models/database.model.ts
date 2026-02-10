@@ -4,7 +4,13 @@ export interface TestParameters {
     groupsNumber: number;
 }
 
+export interface TestTopic {
+    testId: string;
+    topicName: string;
+    description?: string;
+}
+
 export interface DatabaseDefinition {
-    testIds: string[];
+    topics: TestTopic[];
     testParameters: TestParameters[];
 }

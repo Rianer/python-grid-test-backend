@@ -93,7 +93,14 @@ async function buildDatabaseDefinition(
 
     return testDefinitions.reduce(
         (acc, testDef) => ({
-            testIds: [...acc.testIds, testDef.id],
+            topics: [
+                ...acc.topics,
+                {
+                    testId: testDef.id,
+                    topicName: testDef.topic,
+                    description: testDef.description,
+                },
+            ],
             testParameters: [
                 ...acc.testParameters,
                 {
@@ -103,7 +110,7 @@ async function buildDatabaseDefinition(
                 } as TestParameters,
             ],
         }),
-        { testIds: [], testParameters: [] } as DatabaseDefinition,
+        { topics: [], testParameters: [] } as DatabaseDefinition,
     );
 }
 

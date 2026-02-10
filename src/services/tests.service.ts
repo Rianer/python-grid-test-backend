@@ -139,12 +139,12 @@ async function generateNewTest() {
     for (let iterator = 0; iterator < 3; iterator++) {
         let isValidTest = false;
         while (!isValidTest) {
-            const testIndex = getRandomInt(dbDef.testIds.length);
+            const testIndex = getRandomInt(dbDef.topics.length);
             isValidTest = !selectedTestIds.some(
-                (testId) => testId === dbDef.testIds[testIndex],
+                (testId) => testId === dbDef.topics[testIndex]?.testId,
             );
             if (isValidTest) {
-                selectedTestIds.push(dbDef.testIds[testIndex]);
+                selectedTestIds.push(dbDef.topics[testIndex]?.testId);
             }
         }
     }

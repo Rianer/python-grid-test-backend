@@ -20,7 +20,7 @@ export let databaseDefinition: DatabaseDefinition | null = null;
     try {
         console.log("Loading test database definitions...");
         databaseDefinition = await getDatabaseDefinition();
-        console.log(`Loaded ${databaseDefinition.testIds.length} tests`);
+        console.log(`Loaded ${databaseDefinition.topics.length} tests`);
 
         startServer();
     } catch (err) {
@@ -57,7 +57,7 @@ function startServer() {
 
     app.get("/allTests", (req: Request, res: Response) => {
         res.status(200).json({
-            testIds: databaseDefinition?.testIds || [],
+            testIds: databaseDefinition?.topics || [],
         });
     });
 
