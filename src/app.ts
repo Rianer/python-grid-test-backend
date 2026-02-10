@@ -56,9 +56,7 @@ function startServer() {
     });
 
     app.get("/allTests", (req: Request, res: Response) => {
-        res.status(200).json({
-            testIds: databaseDefinition?.topics || [],
-        });
+        res.status(200).json([...(databaseDefinition?.topics || [])]);
     });
 
     app.get("/health", (req: Request, res: Response) => {
