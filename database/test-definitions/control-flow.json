@@ -23,7 +23,7 @@
                 { "id": "d", "value": "bool(0) and True" }
             ],
             "correctAnswerIds": ["c"],
-            "explanation": "not False → True → True or anything → **True**.  \nOthers are False."
+            "explanation": "`not False or False` → `True or False` → **True**.  \nAll other options evaluate to False."
         },
         {
             "title": "What does this loop print?\n```python\nfor i in range(4):\n    print(i, end=' ')\n```",
@@ -78,7 +78,7 @@
                 { "id": "d", "value": "10" }
             ],
             "correctAnswerIds": ["a"],
-            "explanation": "range(10, 3, -2) → 10, 8, 6, 4 (stops before reaching 3)."
+            "explanation": "`range(10, 3, -2)` → 10, 8, 6, 4 (stops before reaching or passing 3 when stepping negative)."
         },
         {
             "title": "Which expression is equivalent to `not (a and b)`?",
@@ -100,7 +100,7 @@
                 { "id": "d", "value": "infinite loop" }
             ],
             "correctAnswerIds": ["b"],
-            "explanation": "When n becomes 2, `break` exits the loop immediately — only 3 was printed before that."
+            "explanation": "n=4 → n=3, print 3 → n=2, break (no more printing) → only **3** is printed."
         },
         {
             "title": "Which range produces exactly [5, 8, 11, 14]?",
@@ -111,7 +111,7 @@
                 { "id": "d", "value": "`range(5, 15)`" }
             ],
             "correctAnswerIds": ["a"],
-            "explanation": "5, 5+3=8, 8+3=11, 11+3=14, 14+3=17 (≥15 → stop)."
+            "explanation": "5, 5+3=8, 8+3=11, 11+3=14, 14+3=17 (≥15 → stop) → exactly [5,8,11,14]."
         },
         {
             "title": "What is the value of `x` after this block?\n```python\nx = 7\nif x > 0:\n    x = 10\nelif x > 5:\n    x = 20\n```",
@@ -122,7 +122,7 @@
                 { "id": "d", "value": "undefined" }
             ],
             "correctAnswerIds": ["a"],
-            "explanation": "First condition `x > 0` is true → `elif` is skipped."
+            "explanation": "First condition `x > 0` is true → sets x=10, `elif` skipped."
         },
         {
             "title": "Which loop never executes its body?\n```python\n# Option A\nfor _ in range(0):\n    print(1)\n\n# Option B\ni = 5\nwhile i < 5:\n    print(2)\n\n# Option C\nfor i in []:\n    print(3)\n```",
@@ -133,7 +133,7 @@
                 { "id": "d", "value": "None of them" }
             ],
             "correctAnswerIds": ["c"],
-            "explanation": "range(0) → empty, while 5<5 → false, empty list → empty iterable. All three never run."
+            "explanation": "`range(0)` and `[]` are empty iterables, `5 < 5` is false → all three loops have zero iterations."
         }
     ],
     "questionGroups": [
@@ -160,7 +160,7 @@
                         { "id": "d", "value": "nothing" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "While x is truthy (non-zero). When x becomes 0 → falsy → loop stops. Prints 3,2,1."
+                    "explanation": "`while x:` continues while x is truthy (non-zero). Stops when x becomes 0 → prints **321**."
                 },
                 {
                     "title": "```python\nfor i in range(5):\n    if i == 2:\n        continue\n    if i == 4:\n        break\n    print(i, end=' ')\n```",
@@ -171,7 +171,7 @@
                         { "id": "d", "value": "0 1 3 " }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "Skips 2 (continue), breaks at 4 before printing it → prints 0 1 3."
+                    "explanation": "Skips printing 2 (`continue`), breaks at 4 before printing it → prints **0 1 3**."
                 },
                 {
                     "title": "```python\nn = 0\nwhile True:\n    n += 1\n    if n % 3 == 0:\n        continue\n    if n > 7:\n        break\n    print(n, end=' ')\n```",
@@ -182,7 +182,7 @@
                         { "id": "d", "value": "infinite" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "Skips multiples of 3, breaks after n>7 check (before printing 8) → 1 2 4 5 7."
+                    "explanation": "Skips printing multiples of 3 (`continue`), breaks when n>7 (before printing 8) → **1 2 4 5 7**."
                 }
             ]
         },

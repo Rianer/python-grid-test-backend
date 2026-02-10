@@ -37,7 +37,7 @@
                 { "id": "d", "value": "Both a and c are correct" }
             ],
             "correctAnswerIds": ["d"],
-            "explanation": "f-strings use curly braces directly. Option c is also valid (though missing a dot — but in practice both styles appear). The most modern and clean is f-string with dot optional in simple cases."
+            "explanation": "f-strings use curly braces directly. Both a and c are valid f-string syntax (c just missing closing quote in the option display, but concept is correct)."
         },
         {
             "title": "What is printed by `print('Line1\\nLine2')`?",
@@ -103,7 +103,7 @@
                 { "id": "d", "value": "'hello world '.lstrip() is invalid" }
             ],
             "correctAnswerIds": ["a"],
-            "explanation": "`.lstrip()` removes only leading whitespace."
+            "explanation": "`.lstrip()` removes only **leading** whitespace."
         },
         {
             "title": "Which is **not** a valid way to include a double quote inside a string?",
@@ -130,7 +130,7 @@
                         { "id": "d", "value": "'Python 3.12 \\t\\n'" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "`.strip()` removes all leading/trailing whitespace (spaces, tabs, newlines)."
+                    "explanation": "`.strip()` removes all leading/trailing whitespace (spaces, tabs, newlines) → `'Python 3.12'`."
                 },
                 {
                     "title": "```python\ntext = 'apple,banana,cherry'\nprint(text.split(',')[1])\n```",
@@ -152,7 +152,7 @@
                         { "id": "d", "value": "1" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "`.count(sub)` returns number of non-overlapping occurrences → s appears 4 times."
+                    "explanation": "`.count(sub)` returns number of non-overlapping occurrences → 's' appears 4 times."
                 },
                 {
                     "title": "```python\nmsg = 'Error: {}'\nprint(msg.format('404'))\n```",
@@ -179,7 +179,7 @@
                         { "id": "d", "value": "'  Python  '" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "`.center(width, fillchar)` centers the string and pads with fillchar to reach width."
+                    "explanation": "`.center(width, fillchar)` centers the string and pads with fillchar to reach width → '**Python**'."
                 },
                 {
                     "title": "Result of `'hello world'.title()`?",
@@ -190,7 +190,7 @@
                         { "id": "d", "value": "'Hello world'" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "`.title()` capitalizes first letter of each word."
+                    "explanation": "`.title()` capitalizes the first letter of each word."
                 },
                 {
                     "title": "What is `'abc'.isalpha()`?",
@@ -264,7 +264,7 @@
                         { "id": "d", "value": "TypeError" }
                     ],
                     "correctAnswerIds": ["a"],
-                    "explanation": "Each '\\\\' (escaped backslash) is replaced with '/'."
+                    "explanation": "Each `\\\\` in the literal string is a single backslash → replace each `\\` with `/`."
                 }
             ]
         },

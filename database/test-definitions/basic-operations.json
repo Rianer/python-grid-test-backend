@@ -23,7 +23,7 @@
                 { "id": "d", "value": "not not False" }
             ],
             "correctAnswerIds": ["c"],
-            "explanation": "`True and False or True` → `False or True` → **True**.  \nOptions a, b and d evaluate to False."
+            "explanation": "`True and False or True` → `False or True` → **True**. \nOptions a, b and d evaluate to False."
         },
         {
             "title": "What value does `x` have after this line?\n```python\nx = 10\nx += 3 * 2\n```",
@@ -34,7 +34,7 @@
                 { "id": "d", "value": "60" }
             ],
             "correctAnswerIds": ["a"],
-            "explanation": "The expression `3 * 2` is evaluated first → 6.  \nThen `x += 6` → 10 + 6 = **16**."
+            "explanation": "The expression `3 * 2` is evaluated first → 6. \nThen `x += 6` → 10 + 6 = **16**."
         },
         {
             "title": "What is printed by this code?\n```python\nprint(2 ** 3 ** 2)\n```",
@@ -45,12 +45,12 @@
                 { "id": "d", "value": "18" }
             ],
             "correctAnswerIds": ["a"],
-            "explanation": "Exponentiation (`**`) is right-associative.  \n`3 ** 2` = 9 → `2 ** 9` = **512**."
+            "explanation": "Exponentiation (`**`) is right-associative. \n`3 ** 2` = 9 → `2 ** 9` = **512**."
         },
         {
             "title": "Which operator has the **highest** precedence?",
             "answerVariants": [
-                { "id": "a", "value": "`+`  (addition)" },
+                { "id": "a", "value": "`+` (addition)" },
                 { "id": "b", "value": "`**` (exponentiation)" },
                 { "id": "c", "value": "`and` (logical and)" },
                 { "id": "d", "value": "`==` (equality)" }
@@ -89,7 +89,7 @@
                 { "id": "d", "value": "not (5 < x < 10)" }
             ],
             "correctAnswerIds": ["c"],
-            "explanation": "By De Morgan’s laws, `not (A and B)` = `not A or not B`.  \nOptions a, b, d are logically equivalent. Option c is different."
+            "explanation": "By De Morgan’s laws, `not (A and B)` = `not A or not B`. \nOptions a, b, d are logically equivalent. Option c is different."
         },
         {
             "title": "What is the final value of `a`?\n```python\na = 7\na = a + 1\na += 2\na *= 3\n```",
@@ -110,11 +110,10 @@
                 { "id": "c", "value": "'hello' + 2" },
                 { "id": "d", "value": "True + 4" }
             ],
-            "correctAnswerIds": ["b"],
-            "explanation": "Python automatically promotes int → float in mixed arithmetic.  \nString + int and bool + int only work in very specific cases — here a, c, d raise TypeError."
+            "correctAnswerIds": ["b", "d"],
+            "explanation": "`5 + 3.0` works (int is promoted to float). `True + 4` works because `True` is a subclass of `int` (behaves as `1`). Options a and c raise `TypeError` (cannot concatenate str and int)."
         }
     ],
-
     "questionGroups": [
         {
             "groupTitle": "Predict the output — Arithmetic & compound assignment",
@@ -160,8 +159,8 @@
                         { "id": "c", "value": "3" },
                         { "id": "d", "value": "-3" }
                     ],
-                    "correctAnswerIds": ["a"],
-                    "explanation": "In Python the sign of the result follows the **divisor**. -5 → remainder is positive → **2** (because 17 = -4×-5 + 2)."
+                    "correctAnswerIds": ["d"],
+                    "explanation": "In Python the sign of the result of `%` follows the **divisor** (`-5` → negative remainder). `17 // -5` = `-4`, then `17 = (-4) * (-5) + (-3)` → **-3**."
                 },
                 {
                     "title": "What is `z` after execution?\n```python\nz = 9\nz -= z // 2\n```",
@@ -176,7 +175,6 @@
                 }
             ]
         },
-
         {
             "groupTitle": "Choose the correct comparison / logical result",
             "questions": [
@@ -200,7 +198,7 @@
                         { "id": "d", "value": "Error" }
                     ],
                     "correctAnswerIds": ["b"],
-                    "explanation": "`and` has higher precedence than `or`.  \n→ `True and False` = False → `False or False` = **False**."
+                    "explanation": "`and` has higher precedence than `or`. \n→ `True and False` = False → `False or False` = **False**."
                 },
                 {
                     "title": "`10 == 10.0` returns:",
@@ -224,7 +222,7 @@
                     "explanation": "0 is falsy → `not 0` = **True**."
                 },
                 {
-                    "title": "Which expression is **False**?",
+                    "title": "Which expression is **True**?",
                     "answerVariants": [
                         { "id": "a", "value": "bool('')" },
                         { "id": "b", "value": "bool([])" },
@@ -236,7 +234,6 @@
                 }
             ]
         },
-
         {
             "groupTitle": "String & mixed-type operations",
             "questions": [
@@ -264,7 +261,7 @@
                 {
                     "title": "Result of `'abc' * 0`?",
                     "answerVariants": [
-                        { "id": "a", "value": "''  (empty string)" },
+                        { "id": "a", "value": "'' (empty string)" },
                         { "id": "b", "value": "'abc0'" },
                         { "id": "c", "value": "TypeError" },
                         { "id": "d", "value": "0" }
