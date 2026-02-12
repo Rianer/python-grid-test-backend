@@ -8,7 +8,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-    origin: "http://localhost:5173", // WHITELIST the frontend
+    origin: ["http://localhost:5173", "http://46.225.21.56"], // WHITELIST the frontend
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
     credentials: true, // Enable set cookie
